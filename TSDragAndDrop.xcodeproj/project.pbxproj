@@ -14,6 +14,11 @@
 		AA9387231B2AF15200B353EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9387221B2AF15200B353EB /* Images.xcassets */; };
 		AA9387261B2AF15200B353EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9387241B2AF15200B353EB /* LaunchScreen.xib */; };
 		AA9387321B2AF15200B353EB /* TSDragAndDropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387311B2AF15200B353EB /* TSDragAndDropTests.swift */; };
+		AA93873C1B2AF17200B353EB /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93873B1B2AF17200B353EB /* RoundView.swift */; };
+		AA93873E1B2EC18800B353EB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93873D1B2EC18800B353EB /* Notifications.swift */; };
+		AA9387401B2EC84400B353EB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93873F1B2EC84400B353EB /* Extensions.swift */; };
+		AA9387421B2EF66900B353EB /* RoundViewNest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387411B2EF66900B353EB /* RoundViewNest.swift */; };
+		AA9387441B2EF6F400B353EB /* RoundViewEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,11 @@
 		AA93872B1B2AF15200B353EB /* TSDragAndDropTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSDragAndDropTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9387301B2AF15200B353EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9387311B2AF15200B353EB /* TSDragAndDropTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDragAndDropTests.swift; sourceTree = "<group>"; };
+		AA93873B1B2AF17200B353EB /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		AA93873D1B2EC18800B353EB /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		AA93873F1B2EC84400B353EB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AA9387411B2EF66900B353EB /* RoundViewNest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewNest.swift; sourceTree = "<group>"; };
+		AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewEgg.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,11 @@
 				AA9387241B2AF15200B353EB /* LaunchScreen.xib */,
 				AA93871A1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld */,
 				AA9387161B2AF15200B353EB /* Supporting Files */,
+				AA93873B1B2AF17200B353EB /* RoundView.swift */,
+				AA93873D1B2EC18800B353EB /* Notifications.swift */,
+				AA93873F1B2EC84400B353EB /* Extensions.swift */,
+				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
+				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
 			);
 			path = TSDragAndDrop;
 			sourceTree = "<group>";
@@ -215,7 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA93873E1B2EC18800B353EB /* Notifications.swift in Sources */,
+				AA9387401B2EC84400B353EB /* Extensions.swift in Sources */,
+				AA9387441B2EF6F400B353EB /* RoundViewEgg.swift in Sources */,
 				AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */,
+				AA93873C1B2AF17200B353EB /* RoundView.swift in Sources */,
+				AA9387421B2EF66900B353EB /* RoundViewNest.swift in Sources */,
 				AA9387191B2AF15200B353EB /* AppDelegate.swift in Sources */,
 				AA93871C1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld in Sources */,
 			);
@@ -415,6 +435,7 @@
 				AA9387371B2AF15200B353EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA9387381B2AF15200B353EB /* Build configuration list for PBXNativeTarget "TSDragAndDropTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +444,7 @@
 				AA93873A1B2AF15200B353EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
