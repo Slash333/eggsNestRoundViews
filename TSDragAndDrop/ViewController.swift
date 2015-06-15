@@ -66,7 +66,11 @@ class ViewController: UIViewController {
                     roundViewEgg.center = nestView.center
                 }
             } else {
-                roundViewEgg.goBack()
+                if roundViewEgg.isNew {
+                    roundViewEgg.goBack()
+                } else {
+                    // do nothing
+                }
             }
         }
     }

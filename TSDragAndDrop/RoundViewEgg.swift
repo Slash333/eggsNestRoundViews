@@ -10,6 +10,7 @@ import UIKit
 
 class RoundViewEgg: RoundView {
     
+    var isNew = true
     var nest: RoundViewNest?
     var location: CGPoint?
     var initialLocation: CGPoint?
@@ -61,6 +62,7 @@ class RoundViewEgg: RoundView {
                             NSNotificationCenter.defaultCenter().postNotificationName(Notifications.GotNest.rawValue, object: self)
                             
                             nestFound = true
+                            isNew = false
                         }
                     }
                 }
