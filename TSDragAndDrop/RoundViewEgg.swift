@@ -10,13 +10,16 @@ import UIKit
 
 class RoundViewEgg: RoundView {
     
-    var isNew = true
+    //var isNew = true
     var nest: RoundViewNest?
     var location: CGPoint?
     var initialLocation: CGPoint?
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        initialLocation = center
+        
         initGestureRecognizer()
     }
     
@@ -39,8 +42,8 @@ class RoundViewEgg: RoundView {
         
         switch(state) {
             
-        case .Began:
-            initialLocation = center
+        //case .Began:
+          //  initialLocation = center
             
         case .Changed:
             location = panGestureRecognizer.locationInView(superview!)
@@ -62,7 +65,7 @@ class RoundViewEgg: RoundView {
                             NSNotificationCenter.defaultCenter().postNotificationName(Notifications.GotNest.rawValue, object: self)
                             
                             nestFound = true
-                            isNew = false
+                            //isNew = false
                         }
                     }
                 }

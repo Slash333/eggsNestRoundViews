@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var roundView: RoundView!
-    
     @IBOutlet weak var roundView1: RoundViewNest!
     @IBOutlet weak var roundView2: RoundViewNest!
     @IBOutlet weak var roundView3: RoundViewNest!
@@ -66,11 +65,11 @@ class ViewController: UIViewController {
                     roundViewEgg.center = nestView.center
                 }
             } else {
-                if roundViewEgg.isNew {
+//                if roundViewEgg.isNew {
                     roundViewEgg.goBack()
-                } else {
-                    // do nothing
-                }
+//                } else {
+//                    // do nothing
+//                }
             }
         }
     }
