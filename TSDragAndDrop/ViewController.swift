@@ -25,8 +25,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var roundView11: RoundViewNest!
     @IBOutlet weak var roundVIew12: RoundViewNest!
     
-    @IBOutlet weak var greenView1: RoundViewEgg!
-    
     var roundViewArray: Array<UIView> = []
     
     override func viewDidLoad() {
