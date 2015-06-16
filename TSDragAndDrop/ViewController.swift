@@ -26,6 +26,11 @@ class ViewController: UIViewController {
     
     var roundViewArray: Array<UIView> = []
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layoutRoundViews()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +50,8 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("gotNest:"), name: Notifications.GotNest.rawValue, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("loseNest:"), name: Notifications.LoseNest.rawValue, object: nil)
+        
+        layoutRoundViews()
         
     }
     
@@ -85,23 +92,13 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        layoutRoundViews()
+        
     }
 
     func layoutRoundViews() {
         
         // init
-        let count = 12
-        let angleDelta: CGFloat = CGFloat(360/count)
         let radius: CGFloat = roundView.bounds.width / 2 + 44
-        
-        // init radians array
-        var radiansArray: Array<CGFloat> = []
-        
-        for i in 0..<count {
-            var angle: CGFloat = angleDelta * CGFloat(i)
-            radiansArray.append(angle.radians)
-        }
         
         var center = self.roundView.center
         
@@ -115,6 +112,19 @@ class ViewController: UIViewController {
             
         }
     }
-
+    
+    lazy var radiansArray: Array<CGFloat> = {
+        
+        let count = 12
+        let angleDelta: CGFloat = CGFloat(360/count)
+        var radiansArray: Array<CGFloat> = []
+        
+        for i in 0..<count {
+            var angle: CGFloat = angleDelta * CGFloat(i)
+            radiansArray.append(angle.radians)
+        }
+        
+        return radiansArray;
+    }()
 }
 
