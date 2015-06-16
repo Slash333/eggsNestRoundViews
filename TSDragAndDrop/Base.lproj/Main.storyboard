@@ -211,6 +211,7 @@
                             <constraint firstAttribute="centerY" secondItem="NbL-fG-7PP" secondAttribute="centerY" id="qlJ-85-fWC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="I02-eg-nLg"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="1024"/>
                     <connections>

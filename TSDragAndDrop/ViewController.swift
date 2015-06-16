@@ -24,21 +24,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var roundView11: RoundViewNest!
     @IBOutlet weak var roundVIew12: RoundViewNest!
     
-    var roundViewArray: Array<UIView> = []
+    lazy var roundViewArray: Array<UIView> = {
+        return self.initRoundViewArray()
+    } ()
     
     lazy var radiansArray: Array<CGFloat> = {
-        
-        let count = 12
-        let angleDelta: CGFloat = CGFloat(360/count)
-        var radiansArray: Array<CGFloat> = []
-        
-        for i in 0..<count {
-            var angle: CGFloat = angleDelta * CGFloat(i)
-            radiansArray.append(angle.radians)
-        }
-        
-        return radiansArray;
-        }()
+        return self.initRadiansArray()
+    }()
+    
+    // MARK: overrides
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layoutRoundViews()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        observeNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeNotificationsObserver()
+    }
+    
+    // MARK: layout subviews
     
     func layoutRoundViews() {
         
@@ -56,35 +67,6 @@ class ViewController: UIViewController {
             roundView.center.y = radius * sin(radians) + center.y
             
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        layoutRoundViews()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // array of views
-        roundViewArray = [roundView1,
-            roundView2, roundView3,
-            roundView4, roundView5,
-            roundView6, roundView7,
-            roundView8,roundView9,
-            roundView10, roundView11,
-            roundVIew12]
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("centerPositionChanged:"), name: kCenterPositionChanged, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("panGestureEnded:"), name: kPanGestureEnded, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("gotNest:"), name: kGotNest, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("nestDidLose:"), name: kNestDidLose, object: nil)
-        
-        layoutRoundViews()
-        
     }
     
     // MARK: notification handlers
@@ -121,6 +103,49 @@ class ViewController: UIViewController {
         if let roundViewEgg = notification.object as? RoundViewEgg {
             roundViewEgg.nest!.changeSelectedState(sSelected: false)
         }
+    }
+    
+    // MARK: helpers
+    
+    func initRoundViewArray() -> Array<UIView> {
+        
+        let roundViewArray: Array<UIView> = [
+            roundView1, roundView2,
+            roundView3, roundView4,
+            roundView5, roundView6,
+            roundView7, roundView8,
+            roundView9, roundView10,
+            roundView11, roundVIew12]
+        
+        return roundViewArray
+    }
+    
+    func initRadiansArray() -> Array<CGFloat> {
+        var radiansArray: Array<CGFloat> = []
+        
+        let count = 12
+        let angleDelta: CGFloat = CGFloat(360/count)
+        
+        for i in 0..<count {
+            var angle: CGFloat = angleDelta * CGFloat(i)
+            radiansArray.append(angle.radians)
+        }
+        
+        return radiansArray;
+    }
+    
+    func observeNotifications() {
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        
+        notificationCenter.addObserver(self, selector: "centerPositionChanged:", name: kCenterPositionChanged, object: nil)
+        notificationCenter.addObserver(self, selector: "panGestureEnded:", name: kPanGestureEnded, object: nil)
+        notificationCenter.addObserver(self, selector: "gotNest:", name: kGotNest, object: nil)
+        notificationCenter.addObserver(self, selector: "nestDidLose:", name: kNestDidLose, object: nil)
+    }
+    
+    func removeNotificationsObserver() {
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.removeObserver(self)
     }
 }
 
