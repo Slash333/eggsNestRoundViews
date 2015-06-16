@@ -18,28 +18,20 @@ class RoundViewEgg: RoundView {
         super.init(coder: aDecoder)
         
         initialLocation = center
-        
         initGestureRecognizer()
     }
+    
+    // MARK - gestures
     
     func initGestureRecognizer() {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         addGestureRecognizer(panGestureRecognizer)
     }
     
-    func goBack() {
-        if let initialLocation = initialLocation {
-            UIView.animateWithDuration(0.7) {
-                self.center = initialLocation
-            }
-        }
-    }
-    
     func handlePanGesture(gestureRecognizer: UIGestureRecognizer) {
         let panGestureRecognizer = gestureRecognizer as! UIPanGestureRecognizer
-        let state = panGestureRecognizer.state
         
-        switch(state) {
+        switch(panGestureRecognizer.state) {
             
         case .Changed:
             location = panGestureRecognizer.locationInView(superview!)
@@ -70,22 +62,26 @@ class RoundViewEgg: RoundView {
                 handleNestLosed()
             }
             
-        case .Ended:
+        case .Ended, .Failed, .Cancelled:
             handlePanEnded()
-            
-        case .Failed:
-            handlePanEnded()
-            
-        case .Cancelled:
-            handlePanEnded()
-            
+        
         default:
             break
             
         }
-        
-        //panGestureRecognizer.setTranslation(CGPointZero, inView: self)
     }
+    
+    // MARK - .. functions
+    
+    func goBack() {
+        if let initialLocation = initialLocation {
+            UIView.animateWithDuration(0.7) {
+                self.center = initialLocation
+            }
+        }
+    }
+    
+    // MARK - event handlers
     
     func handlePanEnded() {
         changeSelectedState(sSelected: false)
