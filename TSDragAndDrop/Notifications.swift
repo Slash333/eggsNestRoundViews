@@ -8,10 +8,7 @@
 
 import Foundation
 
-enum Notifications: String {
-    case CenterPositionChanged = "CenterPositionChanged"
-    case PanGestureEnded = "PanGestureEnded"
-    
-    case GotNest = "gotNest"
-    case LoseNest = "loseNest"
-}
+let kCenterPositionChanged  = "CenterPositionChanged"
+let kPanGestureEnded = "PanGestureEnded"
+let kGotNest = "gotNest"
+let kNestDidLose = "nestDidLose"

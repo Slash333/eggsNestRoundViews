@@ -10,7 +10,6 @@ import UIKit
 
 class RoundViewEgg: RoundView {
     
-    //var isNew = true
     var nest: RoundViewNest?
     var location: CGPoint?
     var initialLocation: CGPoint?
@@ -23,6 +22,11 @@ class RoundViewEgg: RoundView {
         initGestureRecognizer()
     }
     
+    func initGestureRecognizer() {
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        addGestureRecognizer(panGestureRecognizer)
+    }
+    
     func goBack() {
         if let initialLocation = initialLocation {
             UIView.animateWithDuration(0.7) {
@@ -31,23 +35,15 @@ class RoundViewEgg: RoundView {
         }
     }
     
-    func initGestureRecognizer() {
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
-        addGestureRecognizer(panGestureRecognizer)
-    }
-    
     func handlePanGesture(gestureRecognizer: UIGestureRecognizer) {
         let panGestureRecognizer = gestureRecognizer as! UIPanGestureRecognizer
         let state = panGestureRecognizer.state
         
         switch(state) {
             
-        //case .Began:
-          //  initialLocation = center
-            
         case .Changed:
             location = panGestureRecognizer.locationInView(superview!)
-            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.CenterPositionChanged.rawValue, object: self)
+            NSNotificationCenter.defaultCenter().postNotificationName(kCenterPositionChanged, object: self)
             
             var nestFound = false
             
@@ -57,33 +53,31 @@ class RoundViewEgg: RoundView {
                         if CGRectIntersectsRect(roundViewNest.frame, frame) {
                             
                             if nest != roundViewNest {
-                                loseNest()
+                                handleNestLosed()
                             }
                             
                             nest = roundViewNest
                             
-                            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.GotNest.rawValue, object: self)
+                            NSNotificationCenter.defaultCenter().postNotificationName(kGotNest, object: self)
                             
                             nestFound = true
-                            //isNew = false
                         }
                     }
                 }
             }
             
             if nestFound == false {
-                loseNest()
+                handleNestLosed()
             }
             
-            
         case .Ended:
-            panEnded()
+            handlePanEnded()
             
         case .Failed:
-            panEnded()
+            handlePanEnded()
             
         case .Cancelled:
-            panEnded()
+            handlePanEnded()
             
         default:
             break
@@ -93,17 +87,19 @@ class RoundViewEgg: RoundView {
         //panGestureRecognizer.setTranslation(CGPointZero, inView: self)
     }
     
-    func panEnded() {
+    func handlePanEnded() {
         changeSelectedState(sSelected: false)
-        NSNotificationCenter.defaultCenter().postNotificationName(Notifications.PanGestureEnded.rawValue, object: self)
+        NSNotificationCenter.defaultCenter().postNotificationName(kPanGestureEnded, object: self)
     }
     
-    func loseNest() {
+    func handleNestLosed() {
         if nest != nil {
-            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.LoseNest.rawValue, object: self)
+            NSNotificationCenter.defaultCenter().postNotificationName(kNestDidLose, object: self)
             nest = nil
         }
     }
+    
+    // MARK - overrides touches functions
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         changeSelectedState(sSelected: true)
