@@ -65,7 +65,6 @@ class ViewController: UIViewController {
             // convert polar to cartesian
             roundView.center.x = radius * cos(radians) + center.x
             roundView.center.y = radius * sin(radians) + center.y
-            
         }
     }
     
@@ -105,7 +104,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: helpers
+    // MARK: initializers
     
     func initRoundViewArray() -> Array<UIView> {
         
@@ -133,6 +132,8 @@ class ViewController: UIViewController {
         
         return radiansArray;
     }
+    
+    // MARK: notification center
     
     func observeNotifications() {
         let notificationCenter = NSNotificationCenter.defaultCenter()

@@ -91,6 +91,7 @@
 		AA9387151B2AF15200B353EB /* TSDragAndDrop */ = {
 			isa = PBXGroup;
 			children = (
+				AA9387471B3041B900B353EB /* RoundView */,
 				AA9387181B2AF15200B353EB /* AppDelegate.swift */,
 				AA93871D1B2AF15200B353EB /* ViewController.swift */,
 				AA93871F1B2AF15200B353EB /* Main.storyboard */,
@@ -98,11 +99,8 @@
 				AA9387241B2AF15200B353EB /* LaunchScreen.xib */,
 				AA93871A1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld */,
 				AA9387161B2AF15200B353EB /* Supporting Files */,
-				AA93873B1B2AF17200B353EB /* RoundView.swift */,
 				AA93873D1B2EC18800B353EB /* Notifications.swift */,
 				AA93873F1B2EC84400B353EB /* Extensions.swift */,
-				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
-				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
 				AA9387451B302B5D00B353EB /* Utils.swift */,
 			);
 			path = TSDragAndDrop;
@@ -131,6 +129,16 @@
 				AA9387301B2AF15200B353EB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA9387471B3041B900B353EB /* RoundView */ = {
+			isa = PBXGroup;
+			children = (
+				AA93873B1B2AF17200B353EB /* RoundView.swift */,
+				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
+				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
+			);
+			name = RoundView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
