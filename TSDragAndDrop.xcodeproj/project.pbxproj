@@ -19,6 +19,7 @@
 		AA9387401B2EC84400B353EB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93873F1B2EC84400B353EB /* Extensions.swift */; };
 		AA9387421B2EF66900B353EB /* RoundViewNest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387411B2EF66900B353EB /* RoundViewNest.swift */; };
 		AA9387441B2EF6F400B353EB /* RoundViewEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */; };
+		AA9387461B302B5D00B353EB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387451B302B5D00B353EB /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		AA93873F1B2EC84400B353EB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA9387411B2EF66900B353EB /* RoundViewNest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewNest.swift; sourceTree = "<group>"; };
 		AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewEgg.swift; sourceTree = "<group>"; };
+		AA9387451B302B5D00B353EB /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				AA93873F1B2EC84400B353EB /* Extensions.swift */,
 				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
 				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
+				AA9387451B302B5D00B353EB /* Utils.swift */,
 			);
 			path = TSDragAndDrop;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				AA93873E1B2EC18800B353EB /* Notifications.swift in Sources */,
 				AA9387401B2EC84400B353EB /* Extensions.swift in Sources */,
+				AA9387461B302B5D00B353EB /* Utils.swift in Sources */,
 				AA9387441B2EF6F400B353EB /* RoundViewEgg.swift in Sources */,
 				AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */,
 				AA93873C1B2AF17200B353EB /* RoundView.swift in Sources */,

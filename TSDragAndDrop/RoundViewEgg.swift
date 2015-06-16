@@ -44,15 +44,13 @@ class RoundViewEgg: RoundView {
                     if let roundViewNest = view as? RoundViewNest {
                         if CGRectIntersectsRect(roundViewNest.frame, frame) {
                             
-                            if nest != roundViewNest {
-                                handleNestLosed()
+                            // more accurate
+                            // check are circles inside frames intersect?
+                            if circlesInsideFramesIntersects(roundViewNest.frame, frame) {
+                                handleGotNest(roundViewNest)
+                                nestFound = true
                             }
                             
-                            nest = roundViewNest
-                            
-                            NSNotificationCenter.defaultCenter().postNotificationName(kGotNest, object: self)
-                            
-                            nestFound = true
                         }
                     }
                 }
@@ -86,6 +84,16 @@ class RoundViewEgg: RoundView {
     func handlePanEnded() {
         changeSelectedState(sSelected: false)
         NSNotificationCenter.defaultCenter().postNotificationName(kPanGestureEnded, object: self)
+    }
+    
+    func handleGotNest(let roundViewNest: RoundViewNest) {
+        if nest != roundViewNest {
+            handleNestLosed()
+        }
+        
+        nest = roundViewNest
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(kGotNest, object: self)
     }
     
     func handleNestLosed() {
