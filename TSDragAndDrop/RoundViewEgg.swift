@@ -112,4 +112,8 @@ class RoundViewEgg: RoundView {
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         changeSelectedState(sSelected: false)
     }
+    
+    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
+        changeSelectedState(sSelected: false)
+    }
 }

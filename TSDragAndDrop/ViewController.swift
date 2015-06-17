@@ -162,9 +162,23 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
     
     // MARK: DNDDragSourceDelegate
     func draggingViewForDragOperation(operation: DNDDragOperation!) -> UIView! {
-        var ghostEgg = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
+        var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
+        view.addSubview(draggingView)
+        draggingView.alpha = 0
         
-        return ghostEgg
+        UIView.animateWithDuration(0.2) {
+            draggingView.alpha = 1
+        }
+        
+        return draggingView
     }
+    
+    func dragOperationWillCancel(operation: DNDDragOperation!) {
+        operation.removeDraggingViewAnimatedWithDuration(0.2, animations: { (draggingView: UIView!) -> Void in
+            draggingView.alpha = 0
+            draggingView.center = operation.dragSourceView.center
+        })
+    }
+    
 }
 
