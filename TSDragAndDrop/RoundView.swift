@@ -12,6 +12,9 @@ let selectedColor = UIColor.grayColor()
 
 class RoundView: UIView {
     
+    var location: CGPoint?
+    var initialLocation: CGPoint?
+    
     var currentColor: UIColor?
     var selected: Bool = false
     

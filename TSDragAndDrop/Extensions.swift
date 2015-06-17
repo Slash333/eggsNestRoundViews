@@ -29,3 +29,17 @@ public extension CGFloat {
         return self.radians
     }
 }
+
+
+extension UIView {
+    var parentViewController: UIViewController? {
+        var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder!.nextResponder()
+            if parentResponder is UIViewController {
+                return parentResponder as! UIViewController!
+            }
+        }
+        return nil
+    }
+}

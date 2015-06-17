@@ -8,8 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var roundView1: RoundViewNest!
     @IBOutlet weak var roundView2: RoundViewNest!
@@ -23,6 +28,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var roundView10: RoundViewNest!
     @IBOutlet weak var roundView11: RoundViewNest!
     @IBOutlet weak var roundVIew12: RoundViewNest!
+    
+    @IBOutlet weak var egg3: RoundViewEgg!
     
     lazy var roundViewArray: Array<UIView> = {
         return self.initRoundViewArray()
@@ -70,8 +77,21 @@ class ViewController: UIViewController {
     
     // MARK: notification handlers
     
+    func beginDragging(notification: NSNotification) {
+        if let roundView = notification.object as? GhostEgg {
+            // make clone
+            
+            //egg3.removeFromSuperview()
+            
+            //egg3.center = roundView.center
+            //roundView.addSubview(egg3)
+            
+            //
+        }
+    }
+    
     func centerPositionChanged(notification: NSNotification) {
-        if let roundView = notification.object as? RoundViewEgg {
+        if let roundView = notification.object as? GhostEgg {
             
             UIView.animateWithDuration(0.2) {
                 roundView.center = roundView.location!
@@ -80,7 +100,7 @@ class ViewController: UIViewController {
     }
     
     func panGestureEnded(notification: NSNotification) {
-        if let roundViewEgg = notification.object as? RoundViewEgg {
+        if let roundViewEgg = notification.object as? GhostEgg {
             
             if let nestView = roundViewEgg.nest {
                 UIView.animateWithDuration(0.7) {
@@ -138,6 +158,7 @@ class ViewController: UIViewController {
     func observeNotifications() {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         
+        notificationCenter.addObserver(self, selector: "beginDragging:", name: kBeginDragging, object: nil)
         notificationCenter.addObserver(self, selector: "centerPositionChanged:", name: kCenterPositionChanged, object: nil)
         notificationCenter.addObserver(self, selector: "panGestureEnded:", name: kPanGestureEnded, object: nil)
         notificationCenter.addObserver(self, selector: "gotNest:", name: kGotNest, object: nil)

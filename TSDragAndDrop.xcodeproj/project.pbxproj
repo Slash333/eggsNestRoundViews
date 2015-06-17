@@ -20,6 +20,8 @@
 		AA9387421B2EF66900B353EB /* RoundViewNest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387411B2EF66900B353EB /* RoundViewNest.swift */; };
 		AA9387441B2EF6F400B353EB /* RoundViewEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */; };
 		AA9387461B302B5D00B353EB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387451B302B5D00B353EB /* Utils.swift */; };
+		AA9387491B30529A00B353EB /* GhostEgg.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9387481B30529A00B353EB /* GhostEgg.xib */; };
+		AA93874B1B305C6600B353EB /* GhostEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93874A1B305C6600B353EB /* GhostEgg.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		AA9387411B2EF66900B353EB /* RoundViewNest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewNest.swift; sourceTree = "<group>"; };
 		AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewEgg.swift; sourceTree = "<group>"; };
 		AA9387451B302B5D00B353EB /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AA9387481B30529A00B353EB /* GhostEgg.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GhostEgg.xib; sourceTree = "<group>"; };
+		AA93874A1B305C6600B353EB /* GhostEgg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostEgg.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				AA93873B1B2AF17200B353EB /* RoundView.swift */,
 				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
 				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
+				AA9387481B30529A00B353EB /* GhostEgg.xib */,
+				AA93874A1B305C6600B353EB /* GhostEgg.swift */,
 			);
 			name = RoundView;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				AA9387211B2AF15200B353EB /* Main.storyboard in Resources */,
 				AA9387261B2AF15200B353EB /* LaunchScreen.xib in Resources */,
 				AA9387231B2AF15200B353EB /* Images.xcassets in Resources */,
+				AA9387491B30529A00B353EB /* GhostEgg.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +251,7 @@
 				AA93873E1B2EC18800B353EB /* Notifications.swift in Sources */,
 				AA9387401B2EC84400B353EB /* Extensions.swift in Sources */,
 				AA9387461B302B5D00B353EB /* Utils.swift in Sources */,
+				AA93874B1B305C6600B353EB /* GhostEgg.swift in Sources */,
 				AA9387441B2EF6F400B353EB /* RoundViewEgg.swift in Sources */,
 				AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */,
 				AA93873C1B2AF17200B353EB /* RoundView.swift in Sources */,

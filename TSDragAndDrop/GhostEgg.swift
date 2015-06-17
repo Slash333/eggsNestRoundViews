@@ -1,71 +1,33 @@
 //
-//  RoundViewBird.swift
+//  GhostEgg.swift
 //  TSDragAndDrop
 //
-//  Created by Igor Ponomarenko on 6/15/15.
+//  Created by Igor Ponomarenko on 6/16/15.
 //  Copyright (c) 2015 Igor Ponomarenko. All rights reserved.
 //
 
 import UIKit
 
-class RoundViewEgg: RoundView, UIGestureRecognizerDelegate {
+class GhostEgg: RoundView, UIGestureRecognizerDelegate {
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
-    var nest: RoundViewNest? // refactoring
+    var nest: RoundViewNest?
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        initialLocation = center
-        initGestureRecognizer()
-        
-        var longPress = UILongPressGestureRecognizer(target: self, action: "handleLongPressGesture:")
-        longPress.delegate = self
-        
-        
-        addGestureRecognizer(longPress)
-    }
-    
-    // MARK - gestures
-    
-    func initGestureRecognizer() {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        //panGestureRecognizer.delegate = self
         addGestureRecognizer(panGestureRecognizer)
     }
     
-    
-    func handleLongPressGesture(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        switch(longPressGestureRecognizer.state) {
-        case .Began:
-            var ghostEgg = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
-            self.userInteractionEnabled = false
-            self.alpha = 0.0
-            
-            ghostEgg.center = center
-            ghostEgg.alpha = 0.5
-            
-            longPressGestureRecognizer.enabled = false
-            superview?.insertSubview(ghostEgg, belowSubview: self)
-            
-            
-            //userInteractionEnabled = false
-        //case .Ended:
-            //userInteractionEnabled = true
-            
-        default:
-            break
-        }
-    }
-    
-    
-    
     func handlePanGesture(panGestureRecognizer: UIPanGestureRecognizer) {
-        /*switch(panGestureRecognizer.state) {
-        //case .Began:
-          //  handleBeginDragging()
+        switch(panGestureRecognizer.state) {
+            //case .Began:
+            //  handleBeginDragging()
         case .Changed:
             location = panGestureRecognizer.locationInView(superview!)
             NSNotificationCenter.defaultCenter().postNotificationName(kCenterPositionChanged, object: self)
@@ -95,23 +57,13 @@ class RoundViewEgg: RoundView, UIGestureRecognizerDelegate {
             
         case .Ended, .Failed, .Cancelled:
             handlePanEnded()
-        
+            
         default:
             break
             
         }
-*/
     }
-    
-    // MARK - .. functions
-    
-    func goBack() { // refactoring
-        if let initialLocation = initialLocation {
-            UIView.animateWithDuration(0.7) {
-                self.center = initialLocation
-            }
-        }
-    }
+
     
     // MARK - event handlers
     
@@ -141,16 +93,14 @@ class RoundViewEgg: RoundView, UIGestureRecognizerDelegate {
         }
     }
     
-    // MARK - overrides touches functions
+    // MARK - .. functions
     
-    /*override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        
-        handleBeginDragging()
-        
-        changeSelectedState(sSelected: true)
+    func goBack() { // refactoring 
+        if let initialLocation = initialLocation {
+            UIView.animateWithDuration(0.7) {
+                self.center = initialLocation
+            }
+        }
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        changeSelectedState(sSelected: false)
-    }*/
 }

@@ -8,7 +8,8 @@
 
 import Foundation
 
+let kBeginDragging  = "BeginDragging"
 let kCenterPositionChanged  = "CenterPositionChanged"
 let kPanGestureEnded = "PanGestureEnded"
-let kGotNest = "gotNest"
-let kNestDidLose = "nestDidLose"
+let kGotNest = "GotNest"
+let kNestDidLose = "NestDidLose"
