@@ -6,9 +6,6 @@
 //  Copyright (c) 2015 Igor Ponomarenko. All rights reserved.
 //
 
-import UIKit
-
-
 
 class ViewController: UIViewController, DNDDragSourceDelegate {
 
@@ -166,7 +163,7 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
         view.addSubview(draggingView)
         draggingView.alpha = 0
         
-        UIView.animateWithDuration(0.2) {
+        UIView.animateWithDuration(0.5) {
             draggingView.alpha = 1
         }
         
@@ -174,7 +171,7 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
     }
     
     func dragOperationWillCancel(operation: DNDDragOperation!) {
-        operation.removeDraggingViewAnimatedWithDuration(0.2, animations: { (draggingView: UIView!) -> Void in
+        operation.removeDraggingViewAnimatedWithDuration(0.5, animations: { (draggingView: UIView!) -> Void in
             draggingView.alpha = 0
             draggingView.center = operation.dragSourceView.center
         })

@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6No-Nu-icQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="DOS-q3-Svf">
+            <objects>
+                <viewController id="6No-Nu-icQ" customClass="MainViewController" customModule="TSDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fGQ-k2-hsU"/>
+                        <viewControllerLayoutGuide type="bottom" id="bQs-Q5-3N6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DxV-XU-gPK">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-48-pP9">
+                                <rect key="frame" x="0.0" y="0.0" width="680" height="600"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="embed" id="ACV-N6-FhR"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIp-pd-Na1">
+                                <rect key="frame" x="680" y="0.0" width="320" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="lQT-4V-i6l"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="NiY-Sx-FxG" kind="embed" id="qq5-nO-USK"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bQs-Q5-3N6" firstAttribute="top" secondItem="4bB-48-pP9" secondAttribute="bottom" id="HsF-c7-9HA"/>
+                            <constraint firstItem="BIp-pd-Na1" firstAttribute="top" secondItem="DxV-XU-gPK" secondAttribute="top" id="L8e-2m-KEb"/>
+                            <constraint firstItem="4bB-48-pP9" firstAttribute="leading" secondItem="DxV-XU-gPK" secondAttribute="leading" id="brh-qA-w5n"/>
+                            <constraint firstItem="bQs-Q5-3N6" firstAttribute="top" secondItem="BIp-pd-Na1" secondAttribute="bottom" id="kKz-Az-Enb"/>
+                            <constraint firstAttribute="trailing" secondItem="BIp-pd-Na1" secondAttribute="trailing" id="ktM-qM-TZV"/>
+                            <constraint firstItem="4bB-48-pP9" firstAttribute="top" secondItem="DxV-XU-gPK" secondAttribute="top" id="xFg-so-4Mp"/>
+                            <constraint firstItem="BIp-pd-Na1" firstAttribute="leading" secondItem="4bB-48-pP9" secondAttribute="trailing" id="yP1-Mg-mV6"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1000" height="600"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMx-vl-zRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="-991"/>
+        </scene>
+        <!--Egg Table View Controller-->
+        <scene sceneID="SPe-Pe-Yol">
+            <objects>
+                <tableViewController id="NiY-Sx-FxG" customClass="EggTableViewController" customModule="TSDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="dqt-O5-Kus">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="b6Z-ez-Eys" customClass="EggTableViewCell" customModule="TSDragAndDrop" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b6Z-ez-Eys" id="ZCJ-Nk-bgk">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NiY-Sx-FxG" id="bhc-AX-Yma"/>
+                            <outlet property="delegate" destination="NiY-Sx-FxG" id="nYM-Qp-7e1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jf-EQ-2pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1196" y="-991"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -237,6 +309,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="7g9-em-8Qb" userLabel="dragAndDropController" customClass="DNDDragAndDropController"/>
             </objects>
+            <point key="canvasLocation" x="455" y="-29"/>
         </scene>
     </scenes>
 </document>
