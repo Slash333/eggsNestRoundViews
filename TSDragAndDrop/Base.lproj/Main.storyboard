@@ -180,18 +180,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJE-as-ERe" userLabel="Round ViewGreen3" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="905" y="265" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwt-l8-96e" userLabel="3">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1Y-se-9l7" userLabel="Round View6" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="340" y="246" width="70" height="70"/>
                                 <subviews>
@@ -203,6 +191,18 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJE-as-ERe" userLabel="Round ViewGreen3" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
+                                <rect key="frame" x="905" y="268" width="70" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwt-l8-96e" userLabel="3">
+                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -217,6 +217,8 @@
                     <connections>
                         <outlet property="dragAndDropController" destination="7g9-em-8Qb" id="8Q4-Q9-UgP"/>
                         <outlet property="egg1" destination="6wp-E3-fdk" id="UuU-4M-1B3"/>
+                        <outlet property="egg2" destination="931-50-R3P" id="iRn-Dh-Xcx"/>
+                        <outlet property="egg3" destination="AJE-as-ERe" id="qvG-1G-Fp4"/>
                         <outlet property="roundVIew12" destination="89f-ax-k1y" id="4kT-jB-nUG"/>
                         <outlet property="roundView" destination="NbL-fG-7PP" id="Szq-By-Wov"/>
                         <outlet property="roundView1" destination="slK-Jw-CJL" id="zSE-Ox-QLC"/>

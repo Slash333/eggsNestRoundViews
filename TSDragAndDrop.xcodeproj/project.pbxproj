@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6C41C0092835B4BC0C6876AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B446DED62BE38D7D13C1D57 /* libPods.a */; };
+		AA2FD14C1B317E020000479C /* GhostEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD14A1B317E020000479C /* GhostEgg.swift */; };
+		AA2FD14D1B317E020000479C /* GhostEgg.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2FD14B1B317E020000479C /* GhostEgg.xib */; };
 		AA9387191B2AF15200B353EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387181B2AF15200B353EB /* AppDelegate.swift */; };
 		AA93871C1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA93871A1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld */; };
 		AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93871D1B2AF15200B353EB /* ViewController.swift */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		0CDCDA273549FEE6C7793B47 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7B446DED62BE38D7D13C1D57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA2FD14A1B317E020000479C /* GhostEgg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostEgg.swift; sourceTree = "<group>"; };
+		AA2FD14B1B317E020000479C /* GhostEgg.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GhostEgg.xib; sourceTree = "<group>"; };
 		AA9387131B2AF15200B353EB /* TSDragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSDragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9387171B2AF15200B353EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9387181B2AF15200B353EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 		AA9387471B3041B900B353EB /* RoundView */ = {
 			isa = PBXGroup;
 			children = (
+				AA2FD14A1B317E020000479C /* GhostEgg.swift */,
+				AA2FD14B1B317E020000479C /* GhostEgg.xib */,
 				AA93873B1B2AF17200B353EB /* RoundView.swift */,
 				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
 				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
@@ -250,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9387211B2AF15200B353EB /* Main.storyboard in Resources */,
+				AA2FD14D1B317E020000479C /* GhostEgg.xib in Resources */,
 				AA9387261B2AF15200B353EB /* LaunchScreen.xib in Resources */,
 				AA9387231B2AF15200B353EB /* Images.xcassets in Resources */,
 			);
@@ -305,6 +312,7 @@
 				AA93873E1B2EC18800B353EB /* Notifications.swift in Sources */,
 				AA9387401B2EC84400B353EB /* Extensions.swift in Sources */,
 				AA9387461B302B5D00B353EB /* Utils.swift in Sources */,
+				AA2FD14C1B317E020000479C /* GhostEgg.swift in Sources */,
 				AA9387441B2EF6F400B353EB /* RoundViewEgg.swift in Sources */,
 				AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */,
 				AA93873C1B2AF17200B353EB /* RoundView.swift in Sources */,

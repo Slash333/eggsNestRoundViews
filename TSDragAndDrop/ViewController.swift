@@ -28,6 +28,8 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
     @IBOutlet weak var roundVIew12: RoundViewNest!
     
     @IBOutlet weak var egg1: RoundViewEgg!
+    @IBOutlet weak var egg2: RoundViewEgg!
+    @IBOutlet weak var egg3: RoundViewEgg!
     
     lazy var roundViewArray: Array<UIView> = {
         return self.initRoundViewArray()
@@ -160,7 +162,9 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
     
     // MARK: DNDDragSourceDelegate
     func draggingViewForDragOperation(operation: DNDDragOperation!) -> UIView! {
-        return nil
+        var ghostEgg = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
+        
+        return ghostEgg
     }
 }
 
