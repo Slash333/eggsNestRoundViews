@@ -18,7 +18,7 @@ class RoundViewEgg: RoundView {
         super.init(coder: aDecoder)
         
         initialLocation = center
-        initGestureRecognizer()
+        //initGestureRecognizer()
     }
     
     // MARK - gestures

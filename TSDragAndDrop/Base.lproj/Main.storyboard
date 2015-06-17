@@ -215,6 +215,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="1024"/>
                     <connections>
+                        <outlet property="dragAndDropController" destination="7g9-em-8Qb" id="8Q4-Q9-UgP"/>
+                        <outlet property="egg1" destination="6wp-E3-fdk" id="UuU-4M-1B3"/>
                         <outlet property="roundVIew12" destination="89f-ax-k1y" id="4kT-jB-nUG"/>
                         <outlet property="roundView" destination="NbL-fG-7PP" id="Szq-By-Wov"/>
                         <outlet property="roundView1" destination="slK-Jw-CJL" id="zSE-Ox-QLC"/>
@@ -231,6 +233,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="7g9-em-8Qb" userLabel="dragAndDropController" customClass="DNDDragAndDropController"/>
             </objects>
         </scene>
     </scenes>

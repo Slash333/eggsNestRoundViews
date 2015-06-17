@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+
+class ViewController: UIViewController, DNDDragSourceDelegate {
+
+    @IBOutlet var dragAndDropController: DNDDragAndDropController!
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var roundView1: RoundViewNest!
     @IBOutlet weak var roundView2: RoundViewNest!
@@ -24,6 +27,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var roundView11: RoundViewNest!
     @IBOutlet weak var roundVIew12: RoundViewNest!
     
+    @IBOutlet weak var egg1: RoundViewEgg!
+    
     lazy var roundViewArray: Array<UIView> = {
         return self.initRoundViewArray()
     } ()
@@ -33,6 +38,10 @@ class ViewController: UIViewController {
     }()
     
     // MARK: overrides
+    
+    override func viewDidLoad() {
+        dragAndDropController.registerDragSource(egg1, withDelegate: self)
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -147,6 +156,11 @@ class ViewController: UIViewController {
     func removeNotificationsObserver() {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.removeObserver(self)
+    }
+    
+    // MARK: DNDDragSourceDelegate
+    func draggingViewForDragOperation(operation: DNDDragOperation!) -> UIView! {
+        return nil
     }
 }
 
