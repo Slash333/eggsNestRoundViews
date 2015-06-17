@@ -7,9 +7,7 @@
 //
 
 
-class ViewController: UIViewController, DNDDragSourceDelegate {
-
-    @IBOutlet var dragAndDropController: DNDDragAndDropController!
+class ViewController: UIViewController {
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var roundView1: RoundViewNest!
     @IBOutlet weak var roundView2: RoundViewNest!
@@ -24,10 +22,6 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
     @IBOutlet weak var roundView11: RoundViewNest!
     @IBOutlet weak var roundVIew12: RoundViewNest!
     
-    @IBOutlet weak var egg1: RoundViewEgg!
-    @IBOutlet weak var egg2: RoundViewEgg!
-    @IBOutlet weak var egg3: RoundViewEgg!
-    
     lazy var roundViewArray: Array<UIView> = {
         return self.initRoundViewArray()
     } ()
@@ -38,23 +32,9 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
     
     // MARK: overrides
     
-    override func viewDidLoad() {
-        dragAndDropController.registerDragSource(egg1, withDelegate: self)
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layoutRoundViews()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        observeNotifications()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        removeNotificationsObserver()
     }
     
     // MARK: layout subviews
@@ -73,42 +53,6 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
             // convert polar to cartesian
             roundView.center.x = radius * cos(radians) + center.x
             roundView.center.y = radius * sin(radians) + center.y
-        }
-    }
-    
-    // MARK: notification handlers
-    
-    func centerPositionChanged(notification: NSNotification) {
-        if let roundView = notification.object as? RoundViewEgg {
-            
-            UIView.animateWithDuration(0.2) {
-                roundView.center = roundView.location!
-            }
-        }
-    }
-    
-    func panGestureEnded(notification: NSNotification) {
-        if let roundViewEgg = notification.object as? RoundViewEgg {
-            
-            if let nestView = roundViewEgg.nest {
-                UIView.animateWithDuration(0.7) {
-                    roundViewEgg.center = nestView.center
-                }
-            } else {
-                roundViewEgg.goBack()
-            }
-        }
-    }
-    
-    func gotNest(notification: NSNotification) {
-        if let roundViewEgg = notification.object as? RoundViewEgg {
-            roundViewEgg.nest!.changeSelectedState(sSelected: true)
-        }
-    }
-    
-    func nestDidLose(notification: NSNotification) {
-        if let roundViewEgg = notification.object as? RoundViewEgg {
-            roundViewEgg.nest!.changeSelectedState(sSelected: false)
         }
     }
     
@@ -140,42 +84,5 @@ class ViewController: UIViewController, DNDDragSourceDelegate {
         
         return radiansArray;
     }
-    
-    // MARK: notification center
-    
-    func observeNotifications() {
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        
-        notificationCenter.addObserver(self, selector: "centerPositionChanged:", name: kCenterPositionChanged, object: nil)
-        notificationCenter.addObserver(self, selector: "panGestureEnded:", name: kPanGestureEnded, object: nil)
-        notificationCenter.addObserver(self, selector: "gotNest:", name: kGotNest, object: nil)
-        notificationCenter.addObserver(self, selector: "nestDidLose:", name: kNestDidLose, object: nil)
-    }
-    
-    func removeNotificationsObserver() {
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.removeObserver(self)
-    }
-    
-    // MARK: DNDDragSourceDelegate
-    func draggingViewForDragOperation(operation: DNDDragOperation!) -> UIView! {
-        var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
-        view.addSubview(draggingView)
-        draggingView.alpha = 0
-        
-        UIView.animateWithDuration(0.5) {
-            draggingView.alpha = 1
-        }
-        
-        return draggingView
-    }
-    
-    func dragOperationWillCancel(operation: DNDDragOperation!) {
-        operation.removeDraggingViewAnimatedWithDuration(0.5, animations: { (draggingView: UIView!) -> Void in
-            draggingView.alpha = 0
-            draggingView.center = operation.dragSourceView.center
-        })
-    }
-    
 }
 

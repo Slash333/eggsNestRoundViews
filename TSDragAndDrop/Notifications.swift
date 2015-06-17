@@ -7,8 +7,3 @@
 //
 
 import Foundation
-
-let kCenterPositionChanged  = "CenterPositionChanged"
-let kPanGestureEnded = "PanGestureEnded"
-let kGotNest = "gotNest"
-let kNestDidLose = "nestDidLose"

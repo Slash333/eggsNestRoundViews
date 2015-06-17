@@ -19,7 +19,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-48-pP9">
                                 <rect key="frame" x="0.0" y="0.0" width="680" height="600"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="embed" id="ACV-N6-FhR"/>
+                                    <segue destination="BYZ-38-t0r" kind="embed" identifier="leftView" id="ACV-N6-FhR"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIp-pd-Na1">
@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" constant="320" id="lQT-4V-i6l"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="NiY-Sx-FxG" kind="embed" id="qq5-nO-USK"/>
+                                    <segue destination="NiY-Sx-FxG" kind="embed" identifier="rightView" id="qq5-nO-USK"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -45,8 +45,12 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1000" height="600"/>
+                    <connections>
+                        <outlet property="dragAndDropController" destination="F1Q-Ai-0Ks" id="HXZ-kw-P9D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMx-vl-zRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="F1Q-Ai-0Ks" customClass="DNDDragAndDropController"/>
             </objects>
             <point key="canvasLocation" x="455" y="-991"/>
         </scene>
@@ -54,7 +58,7 @@
         <scene sceneID="SPe-Pe-Yol">
             <objects>
                 <tableViewController id="NiY-Sx-FxG" customClass="EggTableViewController" customModule="TSDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="dqt-O5-Kus">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="dqt-O5-Kus">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -228,30 +232,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wp-E3-fdk" userLabel="Round ViewGreen1" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="905" y="76" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLU-Yq-tj0">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="931-50-R3P" userLabel="Round ViewGreen2" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="905" y="173" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqo-XD-gLh" userLabel="2">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1Y-se-9l7" userLabel="Round View6" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="340" y="246" width="70" height="70"/>
                                 <subviews>
@@ -264,18 +244,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJE-as-ERe" userLabel="Round ViewGreen3" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="905" y="268" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwt-l8-96e" userLabel="3">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -287,10 +255,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="1024"/>
                     <connections>
-                        <outlet property="dragAndDropController" destination="7g9-em-8Qb" id="8Q4-Q9-UgP"/>
-                        <outlet property="egg1" destination="6wp-E3-fdk" id="UuU-4M-1B3"/>
-                        <outlet property="egg2" destination="931-50-R3P" id="iRn-Dh-Xcx"/>
-                        <outlet property="egg3" destination="AJE-as-ERe" id="qvG-1G-Fp4"/>
                         <outlet property="roundVIew12" destination="89f-ax-k1y" id="4kT-jB-nUG"/>
                         <outlet property="roundView" destination="NbL-fG-7PP" id="Szq-By-Wov"/>
                         <outlet property="roundView1" destination="slK-Jw-CJL" id="zSE-Ox-QLC"/>
@@ -307,9 +271,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="7g9-em-8Qb" userLabel="dragAndDropController" customClass="DNDDragAndDropController"/>
             </objects>
-            <point key="canvasLocation" x="455" y="-29"/>
+            <point key="canvasLocation" x="455" y="89"/>
         </scene>
     </scenes>
 </document>

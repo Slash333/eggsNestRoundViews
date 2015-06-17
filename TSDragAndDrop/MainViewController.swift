@@ -8,28 +8,52 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, DNDDragSourceDelegate/*, DNDDropTargetDelegate*/ {
 
+    @IBOutlet var dragAndDropController: DNDDragAndDropController!
+    
+    var leftViewController: ViewController?
+    var eggTableViewController: EggTableViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        let dragRecognizer = DNDLongPressDragRecognizer()
+        dragRecognizer.minimumPressDuration = 0.1
+        eggTableViewController?.tableView.panGestureRecognizer.requireGestureRecognizerToFail(dragRecognizer)
+        
+        dragAndDropController.registerDragSource(eggTableViewController?.tableView, withDelegate: self, dragRecognizer: dragRecognizer)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepareForSegue(segue, sender: sender)
+        
+        if segue.identifier == "leftView" {
+            leftViewController = segue.destinationViewController as? ViewController
+        } else if segue.identifier == "rightView" {
+            eggTableViewController = segue.destinationViewController as? EggTableViewController
+        }
     }
-    */
-
+    
+    // MARK: DNDDragSourceDelegate
+    
+    func draggingViewForDragOperation(operation: DNDDragOperation!) -> UIView! {
+        var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
+        view.addSubview(draggingView)
+        draggingView.alpha = 0
+        
+        UIView.animateWithDuration(0.5) {
+            draggingView.alpha = 1
+        }
+        
+        return draggingView
+    }
+    
+    func dragOperationWillCancel(operation: DNDDragOperation!) {
+        operation.removeDraggingViewAnimatedWithDuration(0.5, animations: { (draggingView: UIView!) -> Void in
+            draggingView.alpha = 0
+            draggingView.center = self.view.convertPoint(operation.dragSourceView.center, fromView: operation.dragSourceView)
+            
+        })
+    }
 }
