@@ -340,10 +340,7 @@
     }
 
     overlayWindow.hidden = NO;
-     
     [overlayWindow addSubview:dragView];
-      //[overlayWindow.window bringSubviewToFront:dragView];
-      overlayWindow.backgroundColor = [UIColor greenColor];
       
     recognizer.ovum.dragView = dragView;
     recognizer.ovum.dragViewInitialCenter = dragView.center;

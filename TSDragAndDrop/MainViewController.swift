@@ -8,9 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, OBOvumSource, OBDropZone/*, DNDDragSourceDelegate, DNDDropTargetDelegate*/ {
-
-    @IBOutlet var dragAndDropController: DNDDragAndDropController!
+class MainViewController: UIViewController, OBOvumSource, OBDropZone {
     
     var leftViewController: ViewController?
     var eggTableViewController: EggTableViewController?
@@ -18,18 +16,14 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone/*, DNDDragS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let dragRecognizer = DNDLongPressDragRecognizer()
-        //dragRecognizer.minimumPressDuration = 0.1
-        
-        //eggTableViewController?.tableView.panGestureRecognizer.requireGestureRecognizerToFail(dragRecognizer)
-        
-        //dragAndDropController.registerDragSource(eggTableViewController?.tableView, withDelegate: self, dragRecognizer: dragRecognizer)
-        //dragAndDropController.registerDropTarget(eggTableViewController?.tableView, withDelegate: self)
-        
+        // create long press gesture
         var ddManager = OBDragDropManager.sharedManager()
-        
         var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(self)
         eggTableViewController?.tableView.addGestureRecognizer(gesture)
+        
+        leftViewController?.roundView1.dropZoneHandler = self
+        leftViewController?.view.dropZoneHandler = self
+        eggTableViewController?.view.dropZoneHandler = self
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -46,7 +40,7 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone/*, DNDDragS
     
     func createOvumFromView(sourceView: UIView!) -> OBOvum! {
         var ovum = OBOvum()
-        ovum.dataObject = NSNumber(integer: sourceView.tag)
+        ovum.dataObject = sourceView
         return ovum
     }
     
@@ -58,68 +52,46 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone/*, DNDDragS
         return draggingView
     }
     
-    
-    
     // MARK: OBDropZone
     
     func ovumDropped(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
-        NSLog("ovumDropped");
+        
+        if view == leftViewController?.view! ||
+            view == eggTableViewController?.view! {
+            
+            if let nest = ovum.dataObject as? RoundViewNest{
+                nest.backgroundColor = UIColor.redColor()
+            
+                for gesture in nest.gestureRecognizers as! [UIGestureRecognizer] {
+                    nest.removeGestureRecognizer(gesture)
+                }
+            }
+            
+        } else if let nest = view as? RoundViewNest {
+            nest.backgroundColor = UIColor.greenColor()
+            
+            var ddManager = OBDragDropManager.sharedManager()
+            var gesture = ddManager.createDragDropGestureRecognizerWithClass(UIPanGestureRecognizer.self, source: self)
+            nest.addGestureRecognizer(gesture)
+        }
     }
     
     func ovumEntered(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) -> OBDropAction {
-        NSLog("ovumEntered");
+        
+        if let nest = view as? RoundViewNest {
+            nest.changeSelectedState(sSelected: true)
+        }
         
         return OBDropAction.Move
     }
     
+    func ovumMoved(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) -> OBDropAction {
+        return OBDropAction.Move
+    }
+    
     func ovumExited(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
-        NSLog("ovumExited");
-    }
-    
-    /*
-    // MARK: DNDDragSourceDelegate
-    
-    func draggingViewForDragOperation(operation: DNDDragOperation!) -> UIView! {
-        var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
-        view.addSubview(draggingView)
-        draggingView.alpha = 0
-        
-        UIView.animateWithDuration(0.5) {
-            draggingView.alpha = 1
+        if let nest = view as? RoundViewNest {
+            nest.changeSelectedState(sSelected: false)
         }
-        
-        return draggingView
     }
-    
-    func dragOperationWillCancel(operation: DNDDragOperation!) {
-        operation.removeDraggingViewAnimatedWithDuration(0.5, animations: { (draggingView: UIView!) -> Void in
-            draggingView.alpha = 0
-            draggingView.center = self.view.convertPoint(operation.dragSourceView.center, fromView: operation.dragSourceView)
-            //operation.removeDraggingView()
-        })
-        
-        
-    }
-    
-    // MARK: DNDDropTargetDelegate
-    
-    func dragOperation(operation: DNDDragOperation!, didDropInDropTarget target: UIView!) {
-        var view = target;
-        var x = 1
-        x = 3
-        
-        operation.removeDraggingView()
-    }
-    
-    func dragOperation(operation: DNDDragOperation!, didEnterDropTarget target: UIView!) {
-        var view = target;
-        var x = 1
-        x = 3
-    }
-    
-    func dragOperation(operation: DNDDragOperation!, shouldPositionDragViewInDropTarget target: UIView!) -> Bool {
-        return true
-    }
-*/
-    
 }

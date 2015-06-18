@@ -7,8 +7,6 @@
         <!--Main View Controller-->
         <scene sceneID="DOS-q3-Svf">
             <objects>
-                <customObject id="F1Q-Ai-0Ks" customClass="DNDDragAndDropController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AMx-vl-zRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="6No-Nu-icQ" customClass="MainViewController" customModule="TSDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fGQ-k2-hsU"/>
@@ -47,10 +45,8 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1000" height="600"/>
-                    <connections>
-                        <outlet property="dragAndDropController" destination="F1Q-Ai-0Ks" id="HXZ-kw-P9D"/>
-                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMx-vl-zRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="455" y="-991"/>
         </scene>
@@ -92,7 +88,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J35-zS-dQl" userLabel="Round View2" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J35-zS-dQl" userLabel="Round View2" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="368" y="690" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxk-WH-SXG">
@@ -104,7 +100,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3d-Jo-TSM" userLabel="Round View3" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3d-Jo-TSM" userLabel="Round View3" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="246" y="592" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5v-ZA-b2q">
@@ -116,7 +112,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45D-sR-2Yq" userLabel="Round View4" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45D-sR-2Yq" userLabel="Round View4" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="251" y="463" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuG-fk-Hya">
@@ -128,7 +124,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812986999284" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDN-Vj-1zW" userLabel="Round View5" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDN-Vj-1zW" userLabel="Round View5" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="251" y="342" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8E-WO-Jl4">
@@ -140,7 +136,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TZ3-kR-vfY" userLabel="Round View7" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="7" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TZ3-kR-vfY" userLabel="Round View7" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="477" y="246" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ow-sY-jeN">
@@ -152,7 +148,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uy2-UX-PDy" userLabel="Round View8" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="8" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uy2-UX-PDy" userLabel="Round View8" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="611" y="246" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkt-r0-Qfi">
@@ -164,7 +160,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6x-Kj-zUN" userLabel="Round View9" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="9" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6x-Kj-zUN" userLabel="Round View9" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="717" y="362" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KK-Km-UFF">
@@ -176,7 +172,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2CK-MG-sN6" userLabel="Round View10" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="10" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2CK-MG-sN6" userLabel="Round View10" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="722" y="463" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKI-xP-Lba">
@@ -196,7 +192,7 @@
                                     <constraint firstAttribute="width" constant="250" id="pjL-mf-5m0"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="slK-Jw-CJL" userLabel="Round View1" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="slK-Jw-CJL" userLabel="Round View1" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="477" y="690" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tts-mU-GLm">
@@ -208,7 +204,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bt7-2J-FyW" userLabel="Round View11" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="11" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bt7-2J-FyW" userLabel="Round View11" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="722" y="564" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hby-IX-jMa" userLabel="11">
@@ -220,7 +216,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="89f-ax-k1y" userLabel="Round View12" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="12" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="89f-ax-k1y" userLabel="Round View12" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="654" y="670" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bD-Lw-ALA" userLabel="12">
@@ -232,7 +228,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1Y-se-9l7" userLabel="Round View6" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="6" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1Y-se-9l7" userLabel="Round View6" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="340" y="246" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x21-Ej-Q9X">
@@ -255,7 +251,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="1024"/>
                     <connections>
-                        <outlet property="DDController" destination="7I9-Ge-drq" id="swZ-hN-c2t"/>
                         <outlet property="roundVIew12" destination="89f-ax-k1y" id="4kT-jB-nUG"/>
                         <outlet property="roundView" destination="NbL-fG-7PP" id="Szq-By-Wov"/>
                         <outlet property="roundView1" destination="slK-Jw-CJL" id="zSE-Ox-QLC"/>
@@ -272,7 +267,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="7I9-Ge-drq" customClass="DNDDragAndDropController"/>
             </objects>
             <point key="canvasLocation" x="455" y="89"/>
         </scene>
