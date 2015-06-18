@@ -7,6 +7,8 @@
         <!--Main View Controller-->
         <scene sceneID="DOS-q3-Svf">
             <objects>
+                <customObject id="F1Q-Ai-0Ks" customClass="DNDDragAndDropController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMx-vl-zRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="6No-Nu-icQ" customClass="MainViewController" customModule="TSDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fGQ-k2-hsU"/>
@@ -49,8 +51,6 @@
                         <outlet property="dragAndDropController" destination="F1Q-Ai-0Ks" id="HXZ-kw-P9D"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AMx-vl-zRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="F1Q-Ai-0Ks" customClass="DNDDragAndDropController"/>
             </objects>
             <point key="canvasLocation" x="455" y="-991"/>
         </scene>
@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="b6Z-ez-Eys" customClass="EggTableViewCell" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="b6Z-ez-Eys" customClass="EggTableViewCell" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b6Z-ez-Eys" id="ZCJ-Nk-bgk">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -255,6 +255,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="1024"/>
                     <connections>
+                        <outlet property="DDController" destination="7I9-Ge-drq" id="swZ-hN-c2t"/>
                         <outlet property="roundVIew12" destination="89f-ax-k1y" id="4kT-jB-nUG"/>
                         <outlet property="roundView" destination="NbL-fG-7PP" id="Szq-By-Wov"/>
                         <outlet property="roundView1" destination="slK-Jw-CJL" id="zSE-Ox-QLC"/>
@@ -271,6 +272,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="7I9-Ge-drq" customClass="DNDDragAndDropController"/>
             </objects>
             <point key="canvasLocation" x="455" y="89"/>
         </scene>

@@ -14,6 +14,10 @@
 		AA2FD1591B3192BB0000479C /* EggTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2FD1571B3192BB0000479C /* EggTableViewCell.xib */; };
 		AA2FD15B1B3193B60000479C /* EggTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD15A1B3193B60000479C /* EggTableViewController.swift */; };
 		AA2FD15D1B3193CE0000479C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD15C1B3193CE0000479C /* MainViewController.swift */; };
+		AA2FD16B1B32B40A0000479C /* OBDragDropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD1631B32B40A0000479C /* OBDragDropManager.m */; };
+		AA2FD16C1B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD1661B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.m */; };
+		AA2FD16D1B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD1681B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m */; };
+		AA2FD16E1B32B40A0000479C /* UIView+OBDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD16A1B32B40A0000479C /* UIView+OBDropZone.m */; };
 		AA9387191B2AF15200B353EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387181B2AF15200B353EB /* AppDelegate.swift */; };
 		AA93871C1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA93871A1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld */; };
 		AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93871D1B2AF15200B353EB /* ViewController.swift */; };
@@ -48,6 +52,16 @@
 		AA2FD1571B3192BB0000479C /* EggTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EggTableViewCell.xib; sourceTree = "<group>"; };
 		AA2FD15A1B3193B60000479C /* EggTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EggTableViewController.swift; sourceTree = "<group>"; };
 		AA2FD15C1B3193CE0000479C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AA2FD1611B32B40A0000479C /* OBDragDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBDragDrop.h; path = Classes/OBDragDrop.h; sourceTree = "<group>"; };
+		AA2FD1621B32B40A0000479C /* OBDragDropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBDragDropManager.h; path = Classes/OBDragDropManager.h; sourceTree = "<group>"; };
+		AA2FD1631B32B40A0000479C /* OBDragDropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OBDragDropManager.m; path = Classes/OBDragDropManager.m; sourceTree = "<group>"; };
+		AA2FD1641B32B40A0000479C /* OBDragDropProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBDragDropProtocol.h; path = Classes/OBDragDropProtocol.h; sourceTree = "<group>"; };
+		AA2FD1651B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBLongPressDragDropGestureRecognizer.h; path = Classes/OBLongPressDragDropGestureRecognizer.h; sourceTree = "<group>"; };
+		AA2FD1661B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OBLongPressDragDropGestureRecognizer.m; path = Classes/OBLongPressDragDropGestureRecognizer.m; sourceTree = "<group>"; };
+		AA2FD1671B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+OBDragDrop.h"; path = "Classes/UIGestureRecognizer+OBDragDrop.h"; sourceTree = "<group>"; };
+		AA2FD1681B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+OBDragDrop.m"; path = "Classes/UIGestureRecognizer+OBDragDrop.m"; sourceTree = "<group>"; };
+		AA2FD1691B32B40A0000479C /* UIView+OBDropZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+OBDropZone.h"; path = "Classes/UIView+OBDropZone.h"; sourceTree = "<group>"; };
+		AA2FD16A1B32B40A0000479C /* UIView+OBDropZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+OBDropZone.m"; path = "Classes/UIView+OBDropZone.m"; sourceTree = "<group>"; };
 		AA9387131B2AF15200B353EB /* TSDragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSDragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9387171B2AF15200B353EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9387181B2AF15200B353EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +150,23 @@
 			name = EggTableViewCell;
 			sourceTree = "<group>";
 		};
+		AA2FD1601B32B3FA0000479C /* OB */ = {
+			isa = PBXGroup;
+			children = (
+				AA2FD1611B32B40A0000479C /* OBDragDrop.h */,
+				AA2FD1621B32B40A0000479C /* OBDragDropManager.h */,
+				AA2FD1631B32B40A0000479C /* OBDragDropManager.m */,
+				AA2FD1641B32B40A0000479C /* OBDragDropProtocol.h */,
+				AA2FD1651B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.h */,
+				AA2FD1661B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.m */,
+				AA2FD1671B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.h */,
+				AA2FD1681B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m */,
+				AA2FD1691B32B40A0000479C /* UIView+OBDropZone.h */,
+				AA2FD16A1B32B40A0000479C /* UIView+OBDropZone.m */,
+			);
+			name = OB;
+			sourceTree = "<group>";
+		};
 		AA93870A1B2AF15200B353EB = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +190,7 @@
 		AA9387151B2AF15200B353EB /* TSDragAndDrop */ = {
 			isa = PBXGroup;
 			children = (
+				AA2FD1601B32B3FA0000479C /* OB */,
 				AA9387181B2AF15200B353EB /* AppDelegate.swift */,
 				AA2FD1531B3191C50000479C /* Controllers */,
 				AA2FD1521B3191BE0000479C /* Views */,
@@ -359,13 +391,17 @@
 				AA9387401B2EC84400B353EB /* Extensions.swift in Sources */,
 				AA9387461B302B5D00B353EB /* Utils.swift in Sources */,
 				AA2FD14C1B317E020000479C /* GhostEgg.swift in Sources */,
+				AA2FD16B1B32B40A0000479C /* OBDragDropManager.m in Sources */,
 				AA9387441B2EF6F400B353EB /* RoundViewEgg.swift in Sources */,
+				AA2FD16C1B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.m in Sources */,
 				AA2FD1581B3192BB0000479C /* EggTableViewCell.swift in Sources */,
 				AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */,
 				AA93873C1B2AF17200B353EB /* RoundView.swift in Sources */,
+				AA2FD16E1B32B40A0000479C /* UIView+OBDropZone.m in Sources */,
 				AA9387421B2EF66900B353EB /* RoundViewNest.swift in Sources */,
 				AA2FD15B1B3193B60000479C /* EggTableViewController.swift in Sources */,
 				AA9387191B2AF15200B353EB /* AppDelegate.swift in Sources */,
+				AA2FD16D1B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m in Sources */,
 				AA93871C1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
