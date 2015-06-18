@@ -30,22 +30,26 @@ class EggTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! EggTableViewCell
 
-        cell.nameLabel.text = "\(indexPath.row)"
-        //cell.egg
-        // create long press gesture
+        cell.nameLabel.text = "1.\(indexPath.row)"
+        cell.nameLabe2.text = "2.\(indexPath.row)"
+        
+        addGesture(cell.eggView)
+        addGesture(cell.eggView2)
+
+        return cell
+    }
+    
+    func addGesture(view: UIView) {
         var ddManager = OBDragDropManager.sharedManager()
         var mainVC = self.parentViewController as? MainViewController
         var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(mainVC)
         
-        
-        /*
-        for gesture in cell.gestureRecognizers as! [UIGestureRecognizer] {
-            cell.removeGestureRecognizer(gesture)
+        if  view.gestureRecognizers != nil {
+            for gesture in view.gestureRecognizers as! [UIGestureRecognizer] {
+                view.removeGestureRecognizer(gesture)
+            }
         }
-        */
         
-        cell.eggView.addGestureRecognizer(gesture)
-
-        return cell
+        view.addGestureRecognizer(gesture)
     }
 }

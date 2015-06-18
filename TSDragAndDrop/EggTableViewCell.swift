@@ -10,6 +10,8 @@ import UIKit
 
 class EggTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabe2: UILabel!
     
     @IBOutlet weak var eggView: RoundViewEgg!
+    @IBOutlet weak var eggView2: RoundViewEgg!
 }

@@ -17,7 +17,14 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone {
         super.viewDidLoad()
         
         // drop
-        leftViewController?.roundView1.dropZoneHandler = self
+        
+        if let leftVC = leftViewController {
+            for roundView in leftVC.roundViewArray {
+                roundView.dropZoneHandler = self
+            }
+        }
+        
+        
         leftViewController?.view.dropZoneHandler = self
         eggTableViewController?.view.dropZoneHandler = self
     }
