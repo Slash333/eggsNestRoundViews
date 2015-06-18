@@ -19,7 +19,7 @@ class RoundView: UIView {
         super.init(coder: aDecoder)
         
         currentColor = self.backgroundColor
-        
+    
         var cornerRadius = bounds.width / 2
         
         layer.cornerRadius = cornerRadius

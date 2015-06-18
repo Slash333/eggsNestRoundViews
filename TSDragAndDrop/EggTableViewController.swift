@@ -31,6 +31,20 @@ class EggTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! EggTableViewCell
 
         cell.nameLabel.text = "\(indexPath.row)"
+        //cell.egg
+        // create long press gesture
+        var ddManager = OBDragDropManager.sharedManager()
+        var mainVC = self.parentViewController as? MainViewController
+        var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(mainVC)
+        
+        
+        /*
+        for gesture in cell.gestureRecognizers as! [UIGestureRecognizer] {
+            cell.removeGestureRecognizer(gesture)
+        }
+        */
+        
+        cell.eggView.addGestureRecognizer(gesture)
 
         return cell
     }

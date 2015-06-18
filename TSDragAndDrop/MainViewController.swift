@@ -16,11 +16,7 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // create long press gesture
-        var ddManager = OBDragDropManager.sharedManager()
-        var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(self)
-        eggTableViewController?.tableView.addGestureRecognizer(gesture)
-        
+        // drop
         leftViewController?.roundView1.dropZoneHandler = self
         leftViewController?.view.dropZoneHandler = self
         eggTableViewController?.view.dropZoneHandler = self
@@ -48,7 +44,13 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone {
         var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
         view.addSubview(draggingView)
         
-        draggingView.center = sourceView.center
+        if let egg = sourceView as? RoundViewEgg {
+            var frame = egg.convertRect(egg.bounds, toView: egg.window)
+                frame = window.convertRect(frame, fromWindow: egg.window)
+                
+                draggingView.frame = frame
+        }
+        
         return draggingView
     }
     
