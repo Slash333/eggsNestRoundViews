@@ -154,8 +154,9 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         if let nest = view as? RoundViewNest {
             NSLog("entered on nest")
             
+            nest.changeSelectedState(sSelected: true)
+            
             if nest.egg == nil {
-                nest.changeSelectedState(sSelected: true)
                 return OBDropAction.Move
             }
         }
@@ -178,9 +179,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         if let nest = view as? RoundViewNest {
             NSLog("exited from nest")
             
-            if nest.egg == nil {
-                nest.changeSelectedState(sSelected: false)
-            }
+            nest.changeSelectedState(sSelected: false)
         }
         
         // if main view
@@ -195,8 +194,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         
         nest.egg = egg
         
-        // change color
-        nest.backgroundColor = UIColor(red: 32.0/255.0, green: 255.0/255.0, blue: 142.0/255.0, alpha: 1)
+        nest.changeSelectedState(sSelected: false)
         
         // add gesture
         var ddManager = OBDragDropManager.sharedManager()
@@ -213,8 +211,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         
         nest.egg = nil
         
-        // change color
-        nest.backgroundColor = UIColor.redColor()
+        nest.changeSelectedState(sSelected: false)
         
         // remove gestures
         for gesture in nest.gestureRecognizers as! [UIGestureRecognizer] {
