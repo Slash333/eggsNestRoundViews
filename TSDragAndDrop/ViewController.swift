@@ -143,7 +143,9 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
                 
                 // clear previous nest
                 if let ovumPreviousNest = ovum.dataObject as? RoundViewNest {
-                    clearNest(ovumPreviousNest)
+                    if ovumPreviousNest != nest {
+                        clearNest(ovumPreviousNest)
+                    }
                 }
             }
         } else if view == self.view {
@@ -184,6 +186,15 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         if let nest = view as? RoundViewNest {
             NSLog("exited from nest")
             
+            if let let ovumNest = ovum.dataObject as? RoundViewNest {
+                
+                
+                if nest == ovumNest && nest.egg != nil {
+                    nest.egg = nil
+                }
+            }
+            
+            
             nest.changeSelectedState(sSelected: false)
         }
         
@@ -213,8 +224,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     }
     
     func clearNest(nest: RoundViewNest) {
-        
-        nest.egg = nil
+        nest.egg = nil // alway be nil if ovumExited occured
         
         nest.changeSelectedState(sSelected: false)
         

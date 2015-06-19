@@ -41,7 +41,11 @@ class EggTableViewController: UITableViewController, OBOvumSource {
     
     func addGesture(view: UIView) {
         var ddManager = OBDragDropManager.sharedManager()
-        var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(self)
+        
+        // without long press
+        var gesture = ddManager.createDragDropGestureRecognizerWithClass(UIPanGestureRecognizer.self, source: self)
+        // long press
+        //var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(self)
         
         // remove old gesture
         if  view.gestureRecognizers != nil {

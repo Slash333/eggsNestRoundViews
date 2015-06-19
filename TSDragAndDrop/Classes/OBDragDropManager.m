@@ -431,7 +431,7 @@
       else
       {
         [self animateOvumDrop:ovum withAnimation:^{
-          dragView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+          dragView.transform = CGAffineTransformMakeScale(0.1, 0.1);
           dragView.alpha = 0.0;
         } completion:nil];
       }
