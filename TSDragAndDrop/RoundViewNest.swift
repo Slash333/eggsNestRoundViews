@@ -10,5 +10,5 @@ import UIKit
 
 
 class RoundViewNest: RoundView {
-    
+    var egg: RoundViewEgg?
 }

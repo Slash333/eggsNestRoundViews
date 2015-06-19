@@ -7,7 +7,7 @@
 //
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, OBOvumSource, OBDropZone {
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var roundView1: RoundViewNest!
     @IBOutlet weak var roundView2: RoundViewNest!
@@ -31,6 +31,17 @@ class ViewController: UIViewController {
     }()
     
     // MARK: overrides
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // drop
+        for roundView in roundViewArray {
+            roundView.dropZoneHandler = self
+        }
+        
+        self.view.dropZoneHandler = self
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -83,6 +94,132 @@ class ViewController: UIViewController {
         }
         
         return radiansArray;
+    }
+    
+    // MARK: OBOvumSource
+    
+    func createOvumFromView(sourceView: UIView!) -> OBOvum! {
+        var ovum = OBOvum()
+        ovum.dataObject = sourceView
+        return ovum
+    }
+    
+    func createDragRepresentationOfSourceView(sourceView: UIView!, inWindow window: UIWindow!) -> UIView! {
+        var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
+        
+        var center = window.convertPoint(sourceView.center, fromWindow: sourceView.window)
+        draggingView.center = center
+        
+        return draggingView
+    }
+    
+    func dragViewWillAppear(dragView: UIView!, inWindow window: UIWindow!, atLocation location: CGPoint) {
+        
+        dragView.alpha = 0
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            dragView.alpha = 0.8
+            dragView.transform = CGAffineTransformMakeScale(1.5, 1.5);
+            }) { (completed: Bool) -> Void in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    dragView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+                })
+        }
+    }
+    
+    // MARK: OBDropZone
+    
+    func ovumDropped(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
+        if let nest = view as? RoundViewNest {
+            
+            if let ovumEgg = ovum.dataObject as? RoundViewEgg {
+                putEggOnNest(ovumEgg, nest: nest)
+            } else if let ovumPreviousNest = ovum.dataObject as? RoundViewNest {
+                if ovumPreviousNest.egg != nil {
+                    putEggOnNest(ovumPreviousNest.egg!, nest: nest)
+                    clearNest(ovumPreviousNest)
+                }
+            }
+        } else if view == self.view {
+            
+            if let nest = ovum.dataObject as? RoundViewNest{
+                clearNest(nest)
+            }
+        }
+    }
+    
+    func ovumEntered(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) -> OBDropAction {
+        
+        // if nest
+        if let nest = view as? RoundViewNest {
+            NSLog("entered on nest")
+            
+            if nest.egg == nil {
+                nest.changeSelectedState(sSelected: true)
+                return OBDropAction.Move
+            }
+        }
+        
+        // if main view
+        if view == self.view {
+            NSLog("enter main view")
+            
+            if let nest = ovum.dataObject as? RoundViewNest {
+                return OBDropAction.Move
+            }
+        }
+        
+        return OBDropAction.None
+    }
+    
+    func ovumExited(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
+        
+        // if nest
+        if let nest = view as? RoundViewNest {
+            NSLog("exited from nest")
+            
+            if nest.egg == nil {
+                nest.changeSelectedState(sSelected: false)
+            }
+        }
+        
+        // if main view
+        if view == self.view {
+            NSLog("exit main view")
+        }
+    }
+    
+    // MARK: helpers
+    
+    func putEggOnNest(egg: RoundViewEgg, nest: RoundViewNest) {
+        
+        nest.egg = egg
+        
+        // change color
+        nest.backgroundColor = UIColor(red: 32.0/255.0, green: 255.0/255.0, blue: 142.0/255.0, alpha: 1)
+        
+        // add gesture
+        var ddManager = OBDragDropManager.sharedManager()
+        
+        // without long press
+        var gesture = ddManager.createDragDropGestureRecognizerWithClass(UIPanGestureRecognizer.self, source: self)
+        // long press
+        //var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(self)
+        
+        nest.addGestureRecognizer(gesture)
+    }
+    
+    func clearNest(nest: RoundViewNest) {
+        
+        nest.egg = nil
+        
+        // change color
+        nest.backgroundColor = UIColor.redColor()
+        
+        // remove gestures
+        for gesture in nest.gestureRecognizers as! [UIGestureRecognizer] {
+            nest.removeGestureRecognizer(gesture)
+        }
     }
 }
 
