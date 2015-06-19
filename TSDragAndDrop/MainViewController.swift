@@ -53,12 +53,25 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone {
         
         if let egg = sourceView as? RoundViewEgg {
             var frame = egg.convertRect(egg.bounds, toView: egg.window)
-                frame = window.convertRect(frame, fromWindow: egg.window)
-                
-                draggingView.frame = frame
+            frame = window.convertRect(frame, fromWindow: egg.window)
+            draggingView.frame = frame
         }
         
         return draggingView
+    }
+    
+    func dragViewWillAppear(dragView: UIView!, inWindow window: UIWindow!, atLocation location: CGPoint) {
+        
+        dragView.alpha = 0
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            dragView.alpha = 1
+            dragView.transform = CGAffineTransformMakeScale(1.30, 1.30);
+        }) { (completed: Bool) -> Void in
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                dragView.transform = CGAffineTransformMakeScale(1, 1);
+            })
+        }
     }
     
     // MARK: OBDropZone
