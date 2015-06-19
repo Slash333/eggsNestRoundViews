@@ -110,6 +110,10 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         var center = window.convertPoint(sourceView.center, fromWindow: sourceView.window)
         draggingView.center = center
         
+        if let nest = sourceView as? RoundViewNest {
+            draggingView.egg = nest.egg
+        }
+        
         return draggingView
     }
     
@@ -117,13 +121,14 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         
         dragView.alpha = 0
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            dragView.alpha = 0.8
-            dragView.transform = CGAffineTransformMakeScale(1.5, 1.5);
+        UIView.animateWithDuration(0.5,
+            animations: { () -> Void in
+                dragView.alpha = 0.8
+                dragView.transform = CGAffineTransformMakeScale(1.5, 1.5);
             }) { (completed: Bool) -> Void in
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    dragView.transform = CGAffineTransformMakeScale(1.2, 1.2);
-                })
+                dragView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            })
         }
     }
     
@@ -132,11 +137,12 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     func ovumDropped(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
         if let nest = view as? RoundViewNest {
             
-            if let ovumEgg = ovum.dataObject as? RoundViewEgg {
-                putEggOnNest(ovumEgg, nest: nest)
-            } else if let ovumPreviousNest = ovum.dataObject as? RoundViewNest {
-                if ovumPreviousNest.egg != nil {
-                    putEggOnNest(ovumPreviousNest.egg!, nest: nest)
+            if let ghost = ovum.dragView as? GhostEgg {
+                
+                putEggOnNest(ghost.egg!, nest: nest)
+                
+                // clear previous nest
+                if let ovumPreviousNest = ovum.dataObject as? RoundViewNest {
                     clearNest(ovumPreviousNest)
                 }
             }

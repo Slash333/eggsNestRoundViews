@@ -9,4 +9,5 @@
 import UIKit
 
 class GhostEgg: RoundView {
+    var egg: RoundViewEgg?
 }

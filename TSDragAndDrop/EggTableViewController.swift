@@ -69,6 +69,8 @@ class EggTableViewController: UITableViewController, OBOvumSource {
         frame = window.convertRect(frame, fromWindow: sourceView.window)
         draggingView.frame = frame
         
+        draggingView.egg = sourceView as? RoundViewEgg
+        
         return draggingView
     }
     
