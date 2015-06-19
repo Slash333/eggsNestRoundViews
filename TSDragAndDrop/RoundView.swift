@@ -33,23 +33,31 @@ class RoundView: UIView {
         if selected {
             self.backgroundColor = selectedColor
             
-            /*
             UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.transform = CGAffineTransformMakeScale(1.5, 1.5);
+                    self.transform = CGAffineTransformMakeScale(1.5, 1.5);
                 }) { (completed: Bool) -> Void in
-                    UIView.animateWithDuration(0.5, animations: { () -> Void in
-                        self.transform = CGAffineTransformMakeScale(1.2, 1.2);
-                })
-            }
-            */
+                    
+                    if (self.selected) {
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.transform = CGAffineTransformMakeScale(1.2, 1.2);
+                        })
+                    }
+                    
+                }
             
         } else {
             self.backgroundColor = currentColor
-            /*
+            
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.transform = CGAffineTransformMakeScale(1, 1);
-            })
-            */
+            }) { (completed: Bool) -> Void in
+                
+                if (!self.selected) {
+                    UIView.animateWithDuration(0.5, animations: { () -> Void in
+                        self.transform = CGAffineTransformMakeScale(1, 1);
+                    })
+                }
+            }
         }
         
     }

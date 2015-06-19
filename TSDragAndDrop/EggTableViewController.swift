@@ -63,6 +63,7 @@ class EggTableViewController: UITableViewController, OBOvumSource {
     }
     
     func createDragRepresentationOfSourceView(sourceView: UIView!, inWindow window: UIWindow!) -> UIView! {
+        
         var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
         
         var frame = sourceView.convertRect(sourceView.bounds, toView: sourceView.window)

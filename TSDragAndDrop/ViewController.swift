@@ -160,9 +160,8 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         if let nest = view as? RoundViewNest {
             NSLog("entered on nest")
             
-            nest.changeSelectedState(sSelected: true)
-            
             if nest.egg == nil {
+                nest.changeSelectedState(sSelected: true)
                 return OBDropAction.Move
             }
         }
