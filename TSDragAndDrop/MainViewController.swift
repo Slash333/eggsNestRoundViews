@@ -55,6 +55,9 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone {
             var frame = egg.convertRect(egg.bounds, toView: egg.window)
             frame = window.convertRect(frame, fromWindow: egg.window)
             draggingView.frame = frame
+        } else if let nest = sourceView as? RoundViewNest {
+            var center = window.convertPoint(nest.center, fromWindow: nest.window)
+            draggingView.center = center
         }
         
         return draggingView
@@ -65,11 +68,11 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone {
         dragView.alpha = 0
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
-            dragView.alpha = 1
-            dragView.transform = CGAffineTransformMakeScale(1.30, 1.30);
+            dragView.alpha = 0.8
+            dragView.transform = CGAffineTransformMakeScale(1.5, 1.5);
         }) { (completed: Bool) -> Void in
             UIView.animateWithDuration(0.5, animations: { () -> Void in
-                dragView.transform = CGAffineTransformMakeScale(1, 1);
+                dragView.transform = CGAffineTransformMakeScale(1.2, 1.2);
             })
         }
     }
@@ -90,10 +93,16 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone {
             }
             
         } else if let nest = view as? RoundViewNest {
-            nest.backgroundColor = UIColor.greenColor()
+            nest.backgroundColor = UIColor(red: 32.0/255.0, green: 255.0/255.0, blue: 142.0/255.0, alpha: 255.0)
             
             var ddManager = OBDragDropManager.sharedManager()
+            
+            // without long press
             var gesture = ddManager.createDragDropGestureRecognizerWithClass(UIPanGestureRecognizer.self, source: self)
+            
+            // long press
+            //var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(self)
+            
             nest.addGestureRecognizer(gesture)
         }
     }

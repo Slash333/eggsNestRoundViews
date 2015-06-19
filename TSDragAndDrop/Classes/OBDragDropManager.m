@@ -391,7 +391,10 @@
 
     // New center point for drag view without any modification because of the scale of initial offsets between touch and drag view center.
     CGPoint newCenter = [self applyRecenteringTo:locationInOverlayWindow withRecognizer:recognizer];
-    dragView.center = newCenter;
+      
+      [UIView animateWithDuration:0.3 animations:^{
+          dragView.center = newCenter;
+      }];
 
     [self handleOvumMove:ovum inWindow:hostWindow atLocation:locationInHostWindow];
 
