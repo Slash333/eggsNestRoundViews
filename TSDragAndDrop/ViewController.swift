@@ -22,6 +22,8 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     @IBOutlet weak var roundView11: RoundViewNest!
     @IBOutlet weak var roundVIew12: RoundViewNest!
     
+    @IBOutlet weak var trashNest: RoundViewNest!
+    
     lazy var roundViewArray: Array<UIView> = {
         return self.initRoundViewArray()
     } ()
@@ -173,6 +175,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
             NSLog("enter main view")
             
             if let nest = ovum.dataObject as? RoundViewNest {
+                self.showTrashNest()
                 return OBDropAction.Move
             }
         }
@@ -201,6 +204,10 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         // if main view
         if view == self.view {
             NSLog("exit main view")
+            
+            if let nest = ovum.dataObject as? RoundViewNest {
+                self.hideTrashNest()
+            }
         }
     }
     
@@ -232,6 +239,36 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         for gesture in nest.gestureRecognizers as! [UIGestureRecognizer] {
             nest.removeGestureRecognizer(gesture)
         }
+    }
+    
+    // MARK: helpers
+    
+    func showTrashNest() {
+        trashNest.hidden = false
+        trashNest.dropZoneHandler = self
+        
+//        trashNest.alpha = 0
+        
+//        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//            self.trashNest.alpha = 1
+//            self.trashNest.hidden = false
+//        })
+        
+//        UIView.animateWithDuration(0.5, delay: 1, options: nil, animations: { () -> Void in
+//            self.trashNest.alpha = 1
+//            self.trashNest.hidden = false
+//        }, completion: nil)
+    }
+    
+    func hideTrashNest() {
+        
+        //trashNest.hidden = true
+        
+//        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//            self.trashNest.alpha = 0
+//            }) { (completed: Bool) -> Void in
+//            self.trashNest.hidden = true
+//        }
     }
 }
 
