@@ -8,17 +8,28 @@
 
 import UIKit
 
+let eggColor = UIColor(red: 32.0/255.0, green: 255.0/255.0, blue: 142.0/255.0, alpha: 1)
 
 class RoundViewNest: RoundView {
     var egg: RoundViewEgg?
+    var realColor: UIColor? // need refactoring
     
     // MARK: overrides
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        realColor = currentColor
+    }
+    
     override func changeSelectedState(sSelected selected: Bool) {
-        super.changeSelectedState(sSelected: selected)
         
         if !selected && egg != nil {
-            backgroundColor = UIColor(red: 32.0/255.0, green: 255.0/255.0, blue: 142.0/255.0, alpha: 1)
+            currentColor = eggColor
+        } else {
+            currentColor = realColor
         }
+        
+        super.changeSelectedState(sSelected: selected)
     }
 }

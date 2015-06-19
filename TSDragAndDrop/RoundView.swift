@@ -15,11 +15,11 @@ class RoundView: UIView {
     var currentColor: UIColor?
     var selected: Bool = false
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         currentColor = self.backgroundColor
-    
+        
         var cornerRadius = bounds.width / 2
         
         layer.cornerRadius = cornerRadius
@@ -31,25 +31,32 @@ class RoundView: UIView {
         self.selected = selected
         
         if selected {
-            self.backgroundColor = selectedColor
-            
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.transform = CGAffineTransformMakeScale(1.5, 1.5);
-                }) { (completed: Bool) -> Void in
-                    
-                    if (self.selected) {
-                        UIView.animateWithDuration(0.5, animations: { () -> Void in
-                            self.transform = CGAffineTransformMakeScale(1.2, 1.2);
-                        })
-                    }
-                    
-                }
+            animateSelection()
             
         } else {
-            self.backgroundColor = currentColor
-            
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.transform = CGAffineTransformMakeScale(1, 1);
+            animateDeslection()
+        }
+    }
+    
+    func animateSelection () {
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.backgroundColor = selectedColor
+            self.transform = CGAffineTransformMakeScale(1.5, 1.5);
+            }) { (completed: Bool) -> Void in
+                
+                if (self.selected) {
+                    UIView.animateWithDuration(0.5, animations: { () -> Void in
+                        self.transform = CGAffineTransformMakeScale(1.2, 1.2);
+                    })
+                }
+                
+        }
+    }
+    
+    func animateDeslection() {
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.backgroundColor = self.currentColor
+            self.transform = CGAffineTransformMakeScale(1, 1);
             }) { (completed: Bool) -> Void in
                 
                 if (!self.selected) {
@@ -57,8 +64,6 @@ class RoundView: UIView {
                         self.transform = CGAffineTransformMakeScale(1, 1);
                     })
                 }
-            }
         }
-        
     }
 }
