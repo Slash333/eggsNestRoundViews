@@ -10,32 +10,43 @@ import UIKit
 
 class MainViewController: UIViewController, OBOvumSource, OBDropZone {
     
-    var leftViewController: ViewController?
-    var eggTableViewController: EggTableViewController?
+    private var _leftViewController: ViewController?
+    private var _eggTableViewController: EggTableViewController?
+    
+    lazy var leftViewController: ViewController = {
+        if self._leftViewController != nil {
+            return self._leftViewController!
+        }
+        
+        return ViewController()
+    } ()
+    
+    lazy var eggTableViewController: EggTableViewController = {
+        if self._eggTableViewController != nil {
+            return self._eggTableViewController!
+        }
+        
+        return EggTableViewController()
+    } ()
+    
+    // MARK: overrides
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // drop
-        
-        if let leftVC = leftViewController {
-            for roundView in leftVC.roundViewArray {
-                roundView.dropZoneHandler = self
-            }
+        for roundView in leftViewController.roundViewArray {
+            roundView.dropZoneHandler = self
         }
-        
-        
-        leftViewController?.view.dropZoneHandler = self
-        eggTableViewController?.view.dropZoneHandler = self
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         
         if segue.identifier == "leftView" {
-            leftViewController = segue.destinationViewController as? ViewController
+            _leftViewController = segue.destinationViewController as? ViewController
         } else if segue.identifier == "rightView" {
-            eggTableViewController = segue.destinationViewController as? EggTableViewController
+            _eggTableViewController = segue.destinationViewController as? EggTableViewController
         }
     }
     
@@ -80,35 +91,28 @@ class MainViewController: UIViewController, OBOvumSource, OBDropZone {
     // MARK: OBDropZone
     
     func ovumDropped(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
-        
-        if view == leftViewController?.view! ||
-            view == eggTableViewController?.view! {
-            
-            if let nest = ovum.dataObject as? RoundViewNest{
-                nest.backgroundColor = UIColor.redColor()
-            
-                for gesture in nest.gestureRecognizers as! [UIGestureRecognizer] {
-                    nest.removeGestureRecognizer(gesture)
-                }
-            }
-            
-        } else if let nest = view as? RoundViewNest {
-            nest.backgroundColor = UIColor(red: 32.0/255.0, green: 255.0/255.0, blue: 142.0/255.0, alpha: 255.0)
+        if let nest = view as? RoundViewNest {
+            nest.backgroundColor = UIColor(red: 32.0/255.0, green: 255.0/255.0, blue: 142.0/255.0, alpha: 1)
             
             var ddManager = OBDragDropManager.sharedManager()
             
             // without long press
             var gesture = ddManager.createDragDropGestureRecognizerWithClass(UIPanGestureRecognizer.self, source: self)
-            
             // long press
             //var gesture = ddManager.createLongPressDragDropGestureRecognizerWithSource(self)
             
             nest.addGestureRecognizer(gesture)
+            
+        } else if let nest = ovum.dataObject as? RoundViewNest{
+            nest.backgroundColor = UIColor.redColor()
+            
+            for gesture in nest.gestureRecognizers as! [UIGestureRecognizer] {
+                nest.removeGestureRecognizer(gesture)
+            }
         }
     }
     
     func ovumEntered(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) -> OBDropAction {
-        
         if let nest = view as? RoundViewNest {
             nest.changeSelectedState(sSelected: true)
         }

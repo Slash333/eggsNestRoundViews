@@ -9,5 +9,4 @@
 import UIKit
 
 class GhostEgg: RoundView {
-    var nest: RoundViewNest?
 }
