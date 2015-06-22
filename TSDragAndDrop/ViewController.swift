@@ -22,7 +22,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     @IBOutlet weak var roundView11: RoundViewNest!
     @IBOutlet weak var roundVIew12: RoundViewNest!
     
-    @IBOutlet weak var trashNest: RoundViewNest!
+    @IBOutlet weak var trashView: RoundViewTrash!
     
     lazy var roundViewArray: Array<UIView> = {
         return self.initRoundViewArray()
@@ -43,6 +43,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         }
         
         self.view.dropZoneHandler = self
+        trashView.dropZoneHandler = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -138,9 +139,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     
     func ovumDropped(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
         if let nest = view as? RoundViewNest {
-            
             if let ghost = ovum.dragView as? GhostEgg {
-                
                 putEggOnNest(ghost.egg!, nest: nest)
                 
                 // clear previous nest
@@ -150,64 +149,47 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
                     }
                 }
             }
-        } else if view == self.view {
             
-            if let nest = ovum.dataObject as? RoundViewNest{
-                clearNest(nest)
+            return
+        }
+        
+        if view == trashView {
+            trashView.changeSelectedState(sSelected: false)
+            
+            // clear nest
+            if let ovumNest = ovum.dataObject as? RoundViewNest {
+                clearNest(ovumNest)
+                hideTrashNest()
             }
         }
     }
     
     func ovumEntered(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) -> OBDropAction {
-        
-        // if nest
         if let nest = view as? RoundViewNest {
-            NSLog("entered on nest")
-            
             if nest.egg == nil {
                 nest.changeSelectedState(sSelected: true)
+                hideTrashNest()
                 return OBDropAction.Move
+            } else {
+                return OBDropAction.None
             }
         }
         
-        // if main view
-        if view == self.view {
-            NSLog("enter main view")
-            
-            if let nest = ovum.dataObject as? RoundViewNest {
-                self.showTrashNest()
-                return OBDropAction.Move
-            }
+        if view == trashView {
+            trashView.changeSelectedState(sSelected: true)
+            return OBDropAction.Move
         }
         
         return OBDropAction.None
     }
     
     func ovumExited(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
-        
-        // if nest
         if let nest = view as? RoundViewNest {
-            NSLog("exited from nest")
-            
             if let let ovumNest = ovum.dataObject as? RoundViewNest {
-                
-                
-                if nest == ovumNest && nest.egg != nil {
-                    nest.egg = nil
-                }
+                showTrashNest()
             }
-            
             
             nest.changeSelectedState(sSelected: false)
-        }
-        
-        // if main view
-        if view == self.view {
-            NSLog("exit main view")
-            
-            if let nest = ovum.dataObject as? RoundViewNest {
-                self.hideTrashNest()
-            }
         }
     }
     
@@ -244,8 +226,8 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     // MARK: helpers
     
     func showTrashNest() {
-        trashNest.hidden = false
-        trashNest.dropZoneHandler = self
+        trashView.hidden = false
+        trashView.dropZoneHandler = self
         
 //        trashNest.alpha = 0
         
@@ -262,7 +244,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     
     func hideTrashNest() {
         
-        //trashNest.hidden = true
+        trashView.hidden = true
         
 //        UIView.animateWithDuration(0.5, animations: { () -> Void in
 //            self.trashNest.alpha = 0

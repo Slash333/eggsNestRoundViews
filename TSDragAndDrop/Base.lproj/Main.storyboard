@@ -240,8 +240,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view hidden="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DlY-Kd-G7w" userLabel="Round View1" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="79" y="78" width="70" height="70"/>
+                            <view hidden="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlY-Kd-G7w" userLabel="ThrashView" customClass="RoundViewTrash" customModule="TSDragAndDrop" customModuleProvider="target">
+                                <rect key="frame" x="737" y="217" width="70" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwA-rl-Fn1">
                                         <rect key="frame" x="14" y="24" width="42" height="21"/>
@@ -251,12 +251,18 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="2we-jG-FNC"/>
+                                    <constraint firstAttribute="width" constant="70" id="sqv-od-VMQ"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="NbL-fG-7PP" secondAttribute="centerX" id="H1M-U7-MGQ"/>
+                            <constraint firstItem="NbL-fG-7PP" firstAttribute="top" secondItem="DlY-Kd-G7w" secondAttribute="bottom" constant="100" id="fDY-W3-MvY"/>
                             <constraint firstAttribute="centerY" secondItem="NbL-fG-7PP" secondAttribute="centerY" id="qlJ-85-fWC"/>
+                            <constraint firstItem="DlY-Kd-G7w" firstAttribute="leading" secondItem="NbL-fG-7PP" secondAttribute="trailing" constant="100" id="xqj-ph-dHp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="I02-eg-nLg"/>
@@ -276,7 +282,7 @@
                         <outlet property="roundView7" destination="TZ3-kR-vfY" id="s2j-Gt-gix"/>
                         <outlet property="roundView8" destination="uy2-UX-PDy" id="Mvk-pw-66M"/>
                         <outlet property="roundView9" destination="P6x-Kj-zUN" id="sY5-qi-sj5"/>
-                        <outlet property="trashNest" destination="DlY-Kd-G7w" id="MkO-aa-vQf"/>
+                        <outlet property="trashView" destination="DlY-Kd-G7w" id="6FH-X2-e0D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

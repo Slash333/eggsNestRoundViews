@@ -17,6 +17,7 @@
 		AA2FD16C1B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD1661B32B40A0000479C /* OBLongPressDragDropGestureRecognizer.m */; };
 		AA2FD16D1B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD1681B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m */; };
 		AA2FD16E1B32B40A0000479C /* UIView+OBDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD16A1B32B40A0000479C /* UIView+OBDropZone.m */; };
+		AA63B4C51B38132E0064C2D5 /* RoundViewTrash.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63B4C41B38132E0064C2D5 /* RoundViewTrash.swift */; };
 		AA9387191B2AF15200B353EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387181B2AF15200B353EB /* AppDelegate.swift */; };
 		AA93871C1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA93871A1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld */; };
 		AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93871D1B2AF15200B353EB /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 		AA2FD1681B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+OBDragDrop.m"; path = "Classes/UIGestureRecognizer+OBDragDrop.m"; sourceTree = "<group>"; };
 		AA2FD1691B32B40A0000479C /* UIView+OBDropZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+OBDropZone.h"; path = "Classes/UIView+OBDropZone.h"; sourceTree = "<group>"; };
 		AA2FD16A1B32B40A0000479C /* UIView+OBDropZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+OBDropZone.m"; path = "Classes/UIView+OBDropZone.m"; sourceTree = "<group>"; };
+		AA63B4C41B38132E0064C2D5 /* RoundViewTrash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewTrash.swift; sourceTree = "<group>"; };
 		AA9387131B2AF15200B353EB /* TSDragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSDragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9387171B2AF15200B353EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9387181B2AF15200B353EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				AA93873B1B2AF17200B353EB /* RoundView.swift */,
 				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
 				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
+				AA63B4C41B38132E0064C2D5 /* RoundViewTrash.swift */,
 			);
 			name = RoundView;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				AA9387421B2EF66900B353EB /* RoundViewNest.swift in Sources */,
 				AA2FD15B1B3193B60000479C /* EggTableViewController.swift in Sources */,
 				AA9387191B2AF15200B353EB /* AppDelegate.swift in Sources */,
+				AA63B4C51B38132E0064C2D5 /* RoundViewTrash.swift in Sources */,
 				AA2FD16D1B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m in Sources */,
 				AA93871C1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld in Sources */,
 			);
