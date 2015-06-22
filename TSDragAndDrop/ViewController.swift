@@ -159,7 +159,6 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
             // clear nest
             if let ovumNest = ovum.dataObject as? RoundViewNest {
                 clearNest(ovumNest)
-                hideTrashNest()
             }
         }
     }
@@ -168,11 +167,9 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         if let nest = view as? RoundViewNest {
             if nest.egg == nil {
                 nest.changeSelectedState(sSelected: true)
-                hideTrashNest()
-                return OBDropAction.Move
-            } else {
-                return OBDropAction.None
             }
+            
+            return OBDropAction.Move
         }
         
         if view == trashView {
@@ -191,6 +188,14 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
             
             nest.changeSelectedState(sSelected: false)
         }
+        
+        if view == trashView {
+            trashView.changeSelectedState(sSelected: false)
+        }
+    }
+    
+    func ovumDragEnded(ovum: OBOvum!) {
+        hideTrashNest()
     }
     
     // MARK: helpers
@@ -223,34 +228,64 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         }
     }
     
-    // MARK: helpers
+    // MARK: helpers: show/hide trash view
     
     func showTrashNest() {
-        trashView.hidden = false
-        trashView.dropZoneHandler = self
+        stopTimer()
         
-//        trashNest.alpha = 0
+        if trashView.hidden == false {
+            return
+        }
         
-//        UIView.animateWithDuration(0.5, animations: { () -> Void in
-//            self.trashNest.alpha = 1
-//            self.trashNest.hidden = false
-//        })
+        NSLog("show")
         
-//        UIView.animateWithDuration(0.5, delay: 1, options: nil, animations: { () -> Void in
-//            self.trashNest.alpha = 1
-//            self.trashNest.hidden = false
-//        }, completion: nil)
+        trashView.alpha = 0
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.trashView.alpha = 1
+            self.trashView.hidden = false
+        })
     }
     
     func hideTrashNest() {
         
-        trashView.hidden = true
+        if trashView.hidden == true {
+            return
+        }
         
-//        UIView.animateWithDuration(0.5, animations: { () -> Void in
-//            self.trashNest.alpha = 0
-//            }) { (completed: Bool) -> Void in
-//            self.trashNest.hidden = true
-//        }
+        startTimer()
+    }
+   
+    // MARK: timer (hides lazy trashView)
+    
+    var timer: NSTimer?
+    
+    func startTimer() {
+        stopTimer()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "timerFunction", userInfo: nil, repeats: false)
+    }
+    
+    func stopTimer() {
+        if let timer = timer {
+            if timer.valid {
+                timer.invalidate()
+            }
+        }
+        
+        timer = nil
+    }
+    
+    func timerFunction() {
+        NSLog("hide")
+        stopTimer()
+        
+        var animation = CATransition()
+        animation.type = kCATransitionFade
+        animation.duration = 0.5
+        trashView.layer.addAnimation(animation, forKey: nil)
+        
+        trashView.hidden = true
     }
 }
 
