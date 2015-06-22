@@ -121,17 +121,8 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     }
     
     func dragViewWillAppear(dragView: UIView!, inWindow window: UIWindow!, atLocation location: CGPoint) {
-        
-        dragView.alpha = 0
-        
-        UIView.animateWithDuration(0.5,
-            animations: { () -> Void in
-                dragView.alpha = 0.8
-                dragView.transform = CGAffineTransformMakeScale(1.5, 1.5);
-            }) { (completed: Bool) -> Void in
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                dragView.transform = CGAffineTransformMakeScale(1.2, 1.2);
-            })
+        if let ghostEgg = dragView as? GhostEgg {
+            ghostEgg.showAppearAnimation()
         }
     }
     
@@ -148,6 +139,8 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
                         clearNest(ovumPreviousNest)
                     }
                 }
+                
+                trashView.hideWithAnimation()
             }
             
             return
@@ -165,6 +158,9 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     
     func ovumEntered(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) -> OBDropAction {
         if let nest = view as? RoundViewNest {
+            
+            trashView.lazyHideWithAnimation()
+            
             if nest.egg == nil {
                 nest.changeSelectedState(sSelected: true)
             }
@@ -173,8 +169,10 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         }
         
         if view == trashView {
-            trashView.changeSelectedState(sSelected: true)
-            return OBDropAction.Move
+            if let let ovumNest = ovum.dataObject as? RoundViewNest {
+                trashView.changeSelectedState(sSelected: true)
+                return OBDropAction.Move
+            }
         }
         
         return OBDropAction.None
@@ -183,7 +181,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     func ovumExited(ovum: OBOvum!, inView view: UIView!, atLocation location: CGPoint) {
         if let nest = view as? RoundViewNest {
             if let let ovumNest = ovum.dataObject as? RoundViewNest {
-                showTrashNest()
+                trashView.lazyShowWithAnimation()
             }
             
             nest.changeSelectedState(sSelected: false)
@@ -195,7 +193,7 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     }
     
     func ovumDragEnded(ovum: OBOvum!) {
-        hideTrashNest()
+        trashView.lazyHideWithAnimation()
     }
     
     // MARK: helpers
@@ -226,66 +224,6 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         for gesture in nest.gestureRecognizers as! [UIGestureRecognizer] {
             nest.removeGestureRecognizer(gesture)
         }
-    }
-    
-    // MARK: helpers: show/hide trash view
-    
-    func showTrashNest() {
-        stopTimer()
-        
-        if trashView.hidden == false {
-            return
-        }
-        
-        NSLog("show")
-        
-        trashView.alpha = 0
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.trashView.alpha = 1
-            self.trashView.hidden = false
-        })
-    }
-    
-    func hideTrashNest() {
-        
-        if trashView.hidden == true {
-            return
-        }
-        
-        startTimer()
-    }
-   
-    // MARK: timer (hides lazy trashView)
-    
-    var timer: NSTimer?
-    
-    func startTimer() {
-        stopTimer()
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "timerFunction", userInfo: nil, repeats: false)
-    }
-    
-    func stopTimer() {
-        if let timer = timer {
-            if timer.valid {
-                timer.invalidate()
-            }
-        }
-        
-        timer = nil
-    }
-    
-    func timerFunction() {
-        NSLog("hide")
-        stopTimer()
-        
-        var animation = CATransition()
-        animation.type = kCATransitionFade
-        animation.duration = 0.5
-        trashView.layer.addAnimation(animation, forKey: nil)
-        
-        trashView.hidden = true
     }
 }
 
