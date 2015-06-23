@@ -61,7 +61,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7B446DED62BE38D7D13C1D57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2C0D221B39692B007281B9 /* RoundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundView.xib; sourceTree = "<group>"; };
 		AA2FD14A1B317E020000479C /* GhostEgg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostEgg.swift; sourceTree = "<group>"; };
 		AA2FD14B1B317E020000479C /* GhostEgg.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GhostEgg.xib; sourceTree = "<group>"; };
@@ -121,14 +120,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		135E90AF5FAFF3DF0B6CFC21 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7B446DED62BE38D7D13C1D57 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AA2FD1521B3191BE0000479C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +219,6 @@
 				AA9387151B2AF15200B353EB /* TSDragAndDrop */,
 				AA93872E1B2AF15200B353EB /* TSDragAndDropTests */,
 				AA9387141B2AF15200B353EB /* Products */,
-				135E90AF5FAFF3DF0B6CFC21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
