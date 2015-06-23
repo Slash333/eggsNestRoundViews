@@ -119,6 +119,8 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
         if let ghostEgg = dragView as? GhostEgg {
             ghostEgg.showAppearAnimation()
         }
+        
+        trashView.lazyShowWithAnimation()
     }
     
     // MARK: OBDropZone
