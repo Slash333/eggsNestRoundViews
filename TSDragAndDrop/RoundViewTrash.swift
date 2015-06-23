@@ -8,7 +8,7 @@
 
 import Foundation
 
-let kLazyTimeIntervalForShowAction = NSTimeInterval(0.7) // seconds
+let kLazyTimeIntervalForShowAction = NSTimeInterval(0.5) // seconds
 let kLazyTimeIntervalForHideAction = NSTimeInterval(1.5) // seconds
 
 class RoundViewTrash: RoundView {

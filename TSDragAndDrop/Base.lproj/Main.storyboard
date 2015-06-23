@@ -108,7 +108,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlY-Kd-G7w" userLabel="ThrashView" customClass="RoundViewTrash" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="737" y="217" width="70" height="70"/>
+                                <rect key="frame" x="477" y="477" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="2we-jG-FNC"/>
@@ -119,10 +119,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="NbL-fG-7PP" secondAttribute="centerX" id="H1M-U7-MGQ"/>
+                            <constraint firstAttribute="centerX" secondItem="DlY-Kd-G7w" secondAttribute="centerX" id="Zig-m2-evO"/>
                             <constraint firstItem="NbL-fG-7PP" firstAttribute="top" secondItem="DlY-Kd-G7w" secondAttribute="bottom" constant="100" id="fDY-W3-MvY"/>
+                            <constraint firstAttribute="centerY" secondItem="DlY-Kd-G7w" secondAttribute="centerY" id="pNO-Ot-Qs9"/>
                             <constraint firstAttribute="centerY" secondItem="NbL-fG-7PP" secondAttribute="centerY" id="qlJ-85-fWC"/>
                             <constraint firstItem="DlY-Kd-G7w" firstAttribute="leading" secondItem="NbL-fG-7PP" secondAttribute="trailing" constant="100" id="xqj-ph-dHp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fDY-W3-MvY"/>
+                                <exclude reference="xqj-ph-dHp"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="I02-eg-nLg"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
