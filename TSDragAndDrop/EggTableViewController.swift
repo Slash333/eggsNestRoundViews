@@ -29,13 +29,13 @@ class EggTableViewController: UITableViewController, OBOvumSource {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! EggTableViewCell
-
-        cell.nameLabel.text = "1.\(indexPath.row)"
-        cell.nameLabe2.text = "2.\(indexPath.row)"
         
-        addGesture(cell.eggView)
-        addGesture(cell.eggView2)
-
+        cell.egg1.nameLabel.text = "1.\(indexPath.row)"
+        cell.egg2.nameLabel.text = "2.\(indexPath.row)"
+        
+        addGesture(cell.egg1)
+        addGesture(cell.egg2)
+        
         return cell
     }
     
@@ -68,15 +68,16 @@ class EggTableViewController: UITableViewController, OBOvumSource {
     
     func createDragRepresentationOfSourceView(sourceView: UIView!, inWindow window: UIWindow!) -> UIView! {
         
-        var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
+        var frame = CGRectMake(0, 0, 70, 70)
+        var ghostEgg = GhostEgg(frame: frame)
         
-        var frame = sourceView.convertRect(sourceView.bounds, toView: sourceView.window)
+        frame = sourceView.convertRect(sourceView.bounds, toView: sourceView.window)
         frame = window.convertRect(frame, fromWindow: sourceView.window)
-        draggingView.frame = frame
+        ghostEgg.frame = frame
         
-        draggingView.egg = sourceView as? RoundViewEgg
+        ghostEgg.egg = sourceView as? RoundViewEgg
         
-        return draggingView
+        return ghostEgg
     }
     
     func dragViewWillAppear(dragView: UIView!, inWindow window: UIWindow!, atLocation location: CGPoint) {

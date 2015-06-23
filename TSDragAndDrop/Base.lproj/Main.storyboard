@@ -59,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="b6Z-ez-Eys" customClass="EggTableViewCell" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="b6Z-ez-Eys" customClass="EggTableViewCell" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b6Z-ez-Eys" id="ZCJ-Nk-bgk">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -88,102 +88,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J35-zS-dQl" userLabel="Round View2" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="368" y="690" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxk-WH-SXG">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3d-Jo-TSM" userLabel="Round View3" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="246" y="592" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5v-ZA-b2q">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45D-sR-2Yq" userLabel="Round View4" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="251" y="463" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuG-fk-Hya">
-                                        <rect key="frame" x="11" y="24" width="48" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812986999284" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDN-Vj-1zW" userLabel="Round View5" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="251" y="342" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8E-WO-Jl4">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="7" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TZ3-kR-vfY" userLabel="Round View7" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="477" y="246" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ow-sY-jeN">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="8" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uy2-UX-PDy" userLabel="Round View8" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="611" y="246" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkt-r0-Qfi">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="9" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6x-Kj-zUN" userLabel="Round View9" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="717" y="362" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KK-Km-UFF">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="10" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2CK-MG-sN6" userLabel="Round View10" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="722" y="463" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKI-xP-Lba">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbL-fG-7PP" customClass="RoundView" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="387" y="387" width="250" height="250"/>
                                 <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,66 +95,21 @@
                                     <constraint firstAttribute="height" constant="250" id="2mm-or-YSE"/>
                                     <constraint firstAttribute="width" constant="250" id="pjL-mf-5m0"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="125"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="slK-Jw-CJL" userLabel="Round View1" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="477" y="690" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tts-mU-GLm">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="11" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bt7-2J-FyW" userLabel="Round View11" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="722" y="564" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hby-IX-jMa" userLabel="11">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="12" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="89f-ax-k1y" userLabel="Round View12" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="654" y="670" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bD-Lw-ALA" userLabel="12">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view tag="6" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1Y-se-9l7" userLabel="Round View6" customClass="RoundViewNest" customModule="TSDragAndDrop" customModuleProvider="target">
-                                <rect key="frame" x="340" y="246" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x21-Ej-Q9X">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view hidden="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlY-Kd-G7w" userLabel="ThrashView" customClass="RoundViewTrash" customModule="TSDragAndDrop" customModuleProvider="target">
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlY-Kd-G7w" userLabel="ThrashView" customClass="RoundViewTrash" customModule="TSDragAndDrop" customModuleProvider="target">
                                 <rect key="frame" x="737" y="217" width="70" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwA-rl-Fn1">
-                                        <rect key="frame" x="14" y="24" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="2we-jG-FNC"/>
                                     <constraint firstAttribute="width" constant="70" id="sqv-od-VMQ"/>
@@ -269,25 +128,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="1024"/>
                     <connections>
-                        <outlet property="roundVIew12" destination="89f-ax-k1y" id="4kT-jB-nUG"/>
                         <outlet property="roundView" destination="NbL-fG-7PP" id="Szq-By-Wov"/>
-                        <outlet property="roundView1" destination="slK-Jw-CJL" id="zSE-Ox-QLC"/>
-                        <outlet property="roundView10" destination="2CK-MG-sN6" id="nmh-CP-aSR"/>
-                        <outlet property="roundView11" destination="Bt7-2J-FyW" id="EgP-D1-dmV"/>
-                        <outlet property="roundView2" destination="J35-zS-dQl" id="LIS-7N-Wo1"/>
-                        <outlet property="roundView3" destination="J3d-Jo-TSM" id="5ow-Kp-m3N"/>
-                        <outlet property="roundView4" destination="45D-sR-2Yq" id="qVq-dG-ER3"/>
-                        <outlet property="roundView5" destination="XDN-Vj-1zW" id="9ba-QP-YjN"/>
-                        <outlet property="roundView6" destination="X1Y-se-9l7" id="NPO-xH-oA3"/>
-                        <outlet property="roundView7" destination="TZ3-kR-vfY" id="s2j-Gt-gix"/>
-                        <outlet property="roundView8" destination="uy2-UX-PDy" id="Mvk-pw-66M"/>
-                        <outlet property="roundView9" destination="P6x-Kj-zUN" id="sY5-qi-sj5"/>
                         <outlet property="trashView" destination="DlY-Kd-G7w" id="6FH-X2-e0D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="89"/>
+            <point key="canvasLocation" x="431" y="59"/>
         </scene>
     </scenes>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA2C0D231B39692B007281B9 /* RoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2C0D221B39692B007281B9 /* RoundView.xib */; };
 		AA2FD14C1B317E020000479C /* GhostEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD14A1B317E020000479C /* GhostEgg.swift */; };
 		AA2FD14D1B317E020000479C /* GhostEgg.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2FD14B1B317E020000479C /* GhostEgg.xib */; };
 		AA2FD1581B3192BB0000479C /* EggTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD1561B3192BB0000479C /* EggTableViewCell.swift */; };
@@ -18,6 +19,9 @@
 		AA2FD16D1B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD1681B32B40A0000479C /* UIGestureRecognizer+OBDragDrop.m */; };
 		AA2FD16E1B32B40A0000479C /* UIView+OBDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2FD16A1B32B40A0000479C /* UIView+OBDropZone.m */; };
 		AA63B4C51B38132E0064C2D5 /* RoundViewTrash.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63B4C41B38132E0064C2D5 /* RoundViewTrash.swift */; };
+		AA63B4CB1B38520A0064C2D5 /* RoundViewEgg.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA63B4CA1B38520A0064C2D5 /* RoundViewEgg.xib */; };
+		AA63B4CD1B3852CD0064C2D5 /* RoundViewNest.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA63B4CC1B3852CD0064C2D5 /* RoundViewNest.xib */; };
+		AA63B4CF1B3852DC0064C2D5 /* RoundViewTrash.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA63B4CE1B3852DC0064C2D5 /* RoundViewTrash.xib */; };
 		AA9387191B2AF15200B353EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9387181B2AF15200B353EB /* AppDelegate.swift */; };
 		AA93871C1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA93871A1B2AF15200B353EB /* TSDragAndDrop.xcdatamodeld */; };
 		AA93871E1B2AF15200B353EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93871D1B2AF15200B353EB /* ViewController.swift */; };
@@ -43,8 +47,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AA63B5201B39565B0064C2D5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7B446DED62BE38D7D13C1D57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA2C0D221B39692B007281B9 /* RoundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundView.xib; sourceTree = "<group>"; };
 		AA2FD14A1B317E020000479C /* GhostEgg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostEgg.swift; sourceTree = "<group>"; };
 		AA2FD14B1B317E020000479C /* GhostEgg.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GhostEgg.xib; sourceTree = "<group>"; };
 		AA2FD1561B3192BB0000479C /* EggTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EggTableViewCell.swift; sourceTree = "<group>"; };
@@ -62,6 +80,9 @@
 		AA2FD1691B32B40A0000479C /* UIView+OBDropZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+OBDropZone.h"; path = "Classes/UIView+OBDropZone.h"; sourceTree = "<group>"; };
 		AA2FD16A1B32B40A0000479C /* UIView+OBDropZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+OBDropZone.m"; path = "Classes/UIView+OBDropZone.m"; sourceTree = "<group>"; };
 		AA63B4C41B38132E0064C2D5 /* RoundViewTrash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundViewTrash.swift; sourceTree = "<group>"; };
+		AA63B4CA1B38520A0064C2D5 /* RoundViewEgg.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundViewEgg.xib; sourceTree = "<group>"; };
+		AA63B4CC1B3852CD0064C2D5 /* RoundViewNest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundViewNest.xib; sourceTree = "<group>"; };
+		AA63B4CE1B3852DC0064C2D5 /* RoundViewTrash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundViewTrash.xib; sourceTree = "<group>"; };
 		AA9387131B2AF15200B353EB /* TSDragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSDragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9387171B2AF15200B353EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9387181B2AF15200B353EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,10 +132,10 @@
 		AA2FD1521B3191BE0000479C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA9387471B3041B900B353EB /* RoundView */,
 				AA2FD1551B3192640000479C /* EggTableViewCell */,
 				AA9387241B2AF15200B353EB /* LaunchScreen.xib */,
 				AA93871F1B2AF15200B353EB /* Main.storyboard */,
-				AA9387471B3041B900B353EB /* RoundView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -163,6 +184,42 @@
 				AA2FD16A1B32B40A0000479C /* UIView+OBDropZone.m */,
 			);
 			name = OBDragDrop;
+			sourceTree = "<group>";
+		};
+		AA63B4C61B38518B0064C2D5 /* GhostEgg */ = {
+			isa = PBXGroup;
+			children = (
+				AA2FD14A1B317E020000479C /* GhostEgg.swift */,
+				AA2FD14B1B317E020000479C /* GhostEgg.xib */,
+			);
+			name = GhostEgg;
+			sourceTree = "<group>";
+		};
+		AA63B4C71B3851A60064C2D5 /* Egg */ = {
+			isa = PBXGroup;
+			children = (
+				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
+				AA63B4CA1B38520A0064C2D5 /* RoundViewEgg.xib */,
+			);
+			name = Egg;
+			sourceTree = "<group>";
+		};
+		AA63B4C81B3851AB0064C2D5 /* Nest */ = {
+			isa = PBXGroup;
+			children = (
+				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
+				AA63B4CC1B3852CD0064C2D5 /* RoundViewNest.xib */,
+			);
+			name = Nest;
+			sourceTree = "<group>";
+		};
+		AA63B4C91B3851CC0064C2D5 /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				AA63B4C41B38132E0064C2D5 /* RoundViewTrash.swift */,
+				AA63B4CE1B3852DC0064C2D5 /* RoundViewTrash.xib */,
+			);
+			name = Trash;
 			sourceTree = "<group>";
 		};
 		AA93870A1B2AF15200B353EB = {
@@ -228,12 +285,12 @@
 		AA9387471B3041B900B353EB /* RoundView */ = {
 			isa = PBXGroup;
 			children = (
-				AA2FD14A1B317E020000479C /* GhostEgg.swift */,
-				AA2FD14B1B317E020000479C /* GhostEgg.xib */,
+				AA2C0D221B39692B007281B9 /* RoundView.xib */,
 				AA93873B1B2AF17200B353EB /* RoundView.swift */,
-				AA9387411B2EF66900B353EB /* RoundViewNest.swift */,
-				AA9387431B2EF6F400B353EB /* RoundViewEgg.swift */,
-				AA63B4C41B38132E0064C2D5 /* RoundViewTrash.swift */,
+				AA63B4C71B3851A60064C2D5 /* Egg */,
+				AA63B4C61B38518B0064C2D5 /* GhostEgg */,
+				AA63B4C81B3851AB0064C2D5 /* Nest */,
+				AA63B4C91B3851CC0064C2D5 /* Trash */,
 			);
 			name = RoundView;
 			sourceTree = "<group>";
@@ -248,6 +305,7 @@
 				AA93870F1B2AF15200B353EB /* Sources */,
 				AA9387101B2AF15200B353EB /* Frameworks */,
 				AA9387111B2AF15200B353EB /* Resources */,
+				AA63B5201B39565B0064C2D5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,9 +377,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9387211B2AF15200B353EB /* Main.storyboard in Resources */,
+				AA2C0D231B39692B007281B9 /* RoundView.xib in Resources */,
 				AA2FD14D1B317E020000479C /* GhostEgg.xib in Resources */,
 				AA9387261B2AF15200B353EB /* LaunchScreen.xib in Resources */,
+				AA63B4CB1B38520A0064C2D5 /* RoundViewEgg.xib in Resources */,
+				AA63B4CF1B3852DC0064C2D5 /* RoundViewTrash.xib in Resources */,
 				AA2FD1591B3192BB0000479C /* EggTableViewCell.xib in Resources */,
+				AA63B4CD1B3852CD0064C2D5 /* RoundViewNest.xib in Resources */,
 				AA9387231B2AF15200B353EB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GhostEgg" customModule="TSDragAndDrop" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoundViewTrash" customModule="TSDragAndDrop" customModuleProvider="target">
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                     <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -22,17 +22,19 @@
             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ghost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKv-8g-QiA">
-                    <rect key="frame" x="8" y="24" width="54" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thrash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4u-Q0-xGj">
+                    <rect key="frame" x="9" y="24.5" width="52.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
-            <nil key="simulatedStatusBarMetrics"/>
+            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="i4u-Q0-xGj" secondAttribute="centerX" id="1pT-gw-axV"/>
+                <constraint firstAttribute="centerY" secondItem="i4u-Q0-xGj" secondAttribute="centerY" id="wY7-R3-20E"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="413" y="395"/>
         </view>
     </objects>
 </document>

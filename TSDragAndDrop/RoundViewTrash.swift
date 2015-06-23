@@ -13,6 +13,8 @@ let kLazyTimeIntervalForHideAction = NSTimeInterval(1.5) // seconds
 
 class RoundViewTrash: RoundView {
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
     var showTimer: NSTimer?
     var hideTimer: NSTimer?
     

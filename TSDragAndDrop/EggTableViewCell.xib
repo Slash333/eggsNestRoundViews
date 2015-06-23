@@ -14,35 +14,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8q-YZ-5D9" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8q-YZ-5D9" userLabel="View1" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
                         <rect key="frame" x="31" y="11" width="70" height="70"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCg-Ae-Z5i">
-                                <rect key="frame" x="7" y="23.5" width="56" height="24.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="KHZ-cu-7zX"/>
                             <constraint firstAttribute="height" constant="70" id="LUV-ub-29B"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd9-iA-j5D" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd9-iA-j5D" userLabel="View2" customClass="RoundViewEgg" customModule="TSDragAndDrop" customModuleProvider="target">
                         <rect key="frame" x="138" y="11" width="70" height="70"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kN-kk-5vS">
-                                <rect key="frame" x="7" y="23.5" width="56" height="24.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="0.12664807820000001" green="1" blue="0.55504654730000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="9E3-Bk-0RP"/>
                             <constraint firstAttribute="width" constant="70" id="cnA-sG-PQU"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -54,10 +62,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="eggView" destination="D8q-YZ-5D9" id="MtB-ha-Vwb"/>
-                <outlet property="eggView2" destination="kd9-iA-j5D" id="ELX-XU-i0a"/>
-                <outlet property="nameLabe2" destination="8kN-kk-5vS" id="TWY-VW-mQu"/>
-                <outlet property="nameLabel" destination="dCg-Ae-Z5i" id="RfK-YM-b3l"/>
+                <outlet property="egg1" destination="D8q-YZ-5D9" id="dtw-wh-o0L"/>
+                <outlet property="egg2" destination="kd9-iA-j5D" id="V5t-na-JBz"/>
             </connections>
             <point key="canvasLocation" x="228.5" y="428.5"/>
         </tableViewCell>

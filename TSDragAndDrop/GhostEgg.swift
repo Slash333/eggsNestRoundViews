@@ -11,6 +11,8 @@ import UIKit
 class GhostEgg: RoundView {
     var egg: RoundViewEgg?
     
+    //@IBOutlet weak var nameLabel: UILabel!
+    
     func showAppearAnimation() {
         alpha = 0
         

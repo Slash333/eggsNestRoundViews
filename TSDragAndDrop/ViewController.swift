@@ -6,29 +6,17 @@
 //  Copyright (c) 2015 Igor Ponomarenko. All rights reserved.
 //
 
+let kNestCount = 12
 
 class ViewController: UIViewController, OBOvumSource, OBDropZone {
     @IBOutlet weak var roundView: RoundView!
-    @IBOutlet weak var roundView1: RoundViewNest!
-    @IBOutlet weak var roundView2: RoundViewNest!
-    @IBOutlet weak var roundView3: RoundViewNest!
-    @IBOutlet weak var roundView4: RoundViewNest!
-    @IBOutlet weak var roundView5: RoundViewNest!
-    @IBOutlet weak var roundView6: RoundViewNest!
-    @IBOutlet weak var roundView7: RoundViewNest!
-    @IBOutlet weak var roundView8: RoundViewNest!
-    @IBOutlet weak var roundView9: RoundViewNest!
-    @IBOutlet weak var roundView10: RoundViewNest!
-    @IBOutlet weak var roundView11: RoundViewNest!
-    @IBOutlet weak var roundVIew12: RoundViewNest!
-    
     @IBOutlet weak var trashView: RoundViewTrash!
     
-    lazy var roundViewArray: Array<UIView> = {
+    lazy var roundViewArray: [UIView] = {
         return self.initRoundViewArray()
     } ()
     
-    lazy var radiansArray: Array<CGFloat> = {
+    lazy var radiansArray: [CGFloat] = {
         return self.initRadiansArray()
     }()
     
@@ -37,13 +25,19 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // drop
+        // add nests
+        for nest in roundViewArray {
+            view.addSubview(nest)
+        }
+        
+        // set up drop zone
         for roundView in roundViewArray {
             roundView.dropZoneHandler = self
         }
         
-        self.view.dropZoneHandler = self
+        view.dropZoneHandler = self
         trashView.dropZoneHandler = self
+        trashView.hidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -72,26 +66,26 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     
     // MARK: initializers
     
-    func initRoundViewArray() -> Array<UIView> {
+    func initRoundViewArray() -> [UIView] {
         
-        let roundViewArray: Array<UIView> = [
-            roundView1, roundView2,
-            roundView3, roundView4,
-            roundView5, roundView6,
-            roundView7, roundView8,
-            roundView9, roundView10,
-            roundView11, roundVIew12]
+        var roundViewArray = [UIView]()
+        
+        for i in 0..<kNestCount {
+            let frame = CGRectMake(0, 0, 70, 70)
+            let nest = RoundViewNest(frame: frame)
+            nest.nameLabel.text = "nest \(i)"
+            roundViewArray.append(nest)
+        }
         
         return roundViewArray
     }
     
-    func initRadiansArray() -> Array<CGFloat> {
-        var radiansArray: Array<CGFloat> = []
+    func initRadiansArray() -> [CGFloat] {
+        var radiansArray = [CGFloat]()
         
-        let count = 12
-        let angleDelta: CGFloat = CGFloat(360/count)
+        let angleDelta: CGFloat = CGFloat(360/kNestCount)
         
-        for i in 0..<count {
+        for i in 0..<kNestCount {
             var angle: CGFloat = angleDelta * CGFloat(i)
             radiansArray.append(angle.radians)
         }
@@ -108,16 +102,17 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
     }
     
     func createDragRepresentationOfSourceView(sourceView: UIView!, inWindow window: UIWindow!) -> UIView! {
-        var draggingView = NSBundle.mainBundle().loadNibNamed("GhostEgg", owner: nil, options: nil).first as! GhostEgg
+        let frame = CGRectMake(0, 0, 70, 70)
+        var ghostEgg = GhostEgg(frame: frame)
         
         var center = window.convertPoint(sourceView.center, fromWindow: sourceView.window)
-        draggingView.center = center
+        ghostEgg.center = center
         
         if let nest = sourceView as? RoundViewNest {
-            draggingView.egg = nest.egg
+            ghostEgg.egg = nest.egg
         }
         
-        return draggingView
+        return ghostEgg
     }
     
     func dragViewWillAppear(dragView: UIView!, inWindow window: UIWindow!, atLocation location: CGPoint) {
@@ -153,6 +148,8 @@ class ViewController: UIViewController, OBOvumSource, OBDropZone {
             if let ovumNest = ovum.dataObject as? RoundViewNest {
                 clearNest(ovumNest)
             }
+            
+            trashView.hideWithAnimation()
         }
     }
     

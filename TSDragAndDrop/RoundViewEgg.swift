@@ -9,5 +9,5 @@
 import UIKit
 
 class RoundViewEgg: RoundView {
-    
+    @IBOutlet weak var nameLabel: UILabel!
 }
